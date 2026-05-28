@@ -105,7 +105,7 @@
       if (msg.includes('deck') || msg.includes('capabilities') || msg.includes('brochure'))
         return 'We\'d be happy to send our capabilities deck. Email us at <strong>info@encompasstp.com</strong> or call <strong>(714) 920-5462</strong>.';
       if (msg.includes('business development') || msg.includes('speak') || msg.includes('call') || msg.includes('bd'))
-        return 'To speak with our business development team, call <strong>(714) 920-5462</strong> or email <strong>info@encompasstp.com</strong>. We respond within one business day.';
+        return 'You can reach Sean Smith, our Business Development lead, directly at <a href="mailto:ssmith@encompasstp.com" style="color:var(--accent);font-weight:600;">ssmith@encompasstp.com</a> or call <strong>(714) 920-5462</strong>.';
       if (msg.includes('license') || msg.includes('licensed'))
         return 'Encompass Technology Partners holds active CA Low Voltage Systems License <strong>#1064391</strong>.';
       if (msg.includes('service') || msg.includes('what do you do'))
@@ -121,6 +121,9 @@
         const labels = { rfi: 'Submit an RFI / RFP', deck: 'Request a Capabilities Deck', bd: 'Speak with Business Development' };
         document.getElementById('quickReplies') && (document.getElementById('quickReplies').style.display = 'none');
         addBubble(labels[type] || '', 'user');
+        if (type === 'bd') {
+          window.location.href = 'mailto:ssmith@encompasstp.com?subject=Business%20Development%20Inquiry%20%E2%80%94%20Encompass%20Technology%20Partners&body=Hello%20Sean%2C%0A%0AI%20would%20like%20to%20connect%20regarding%20a%20project%20opportunity.%0A%0A';
+        }
         setTimeout(() => addBubble(botReply(labels[type] || ''), 'bot'), 500);
       });
     });
