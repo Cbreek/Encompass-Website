@@ -3,12 +3,12 @@
    ============================================================ */
 
 :root {
-  --navy:          #0B1D33;
-  --navy-mid:      #162E4D;
-  --navy-light:    #1E3A5F;
+  --navy:          #111111;
+  --navy-mid:      #1C1C1C;
+  --navy-light:    #2D2D2D;
   --charcoal:      #2D3748;
-  --accent:        #2B6CB0;
-  --accent-bright: #3B82F6;
+  --accent:        #C41E3A;
+  --accent-bright: #E53E3E;
   --silver:        #94A3B8;
   --silver-light:  #CBD5E1;
   --silver-pale:   #E2E8F0;
@@ -81,8 +81,8 @@ h4 { font-size: 1.1rem; }
   border: 2px solid transparent; border-radius: var(--radius);
   cursor: pointer; transition: all var(--ease); white-space: nowrap;
 }
-.btn-primary { background: var(--navy); color: var(--white); border-color: var(--navy); }
-.btn-primary:hover { background: var(--navy-light); border-color: var(--navy-light); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-primary { background: var(--accent); color: var(--white); border-color: var(--accent); }
+.btn-primary:hover { background: #A01830; border-color: #A01830; transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.55); }
 .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: var(--white); transform: translateY(-2px); }
 .btn-outline-dark { background: transparent; color: var(--navy); border-color: var(--navy); }
@@ -107,9 +107,9 @@ h4 { font-size: 1.1rem; }
   display: flex; align-items: center; justify-content: center;
   width: 42px; height: 42px;
   background: var(--accent); color: var(--white);
-  font-size: 0.8rem; font-weight: 900; letter-spacing: 0.05em;
   border-radius: 3px; flex-shrink: 0;
 }
+.logo-mark svg { filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-name { font-size: 1rem; font-weight: 800; color: var(--white); letter-spacing: 0.1em; text-transform: uppercase; }
 .logo-sub { font-size: 0.65rem; font-weight: 500; color: var(--silver); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 3px; }
@@ -151,7 +151,7 @@ h4 { font-size: 1.1rem; }
 }
 .hero-gradient {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 70% at 70% 40%, rgba(43,108,176,0.18) 0%, transparent 65%);
+  background: radial-gradient(ellipse 80% 70% at 70% 40%, rgba(196,30,58,0.14) 0%, transparent 65%);
 }
 .hero-content {
   position: relative; z-index: 2;
@@ -407,8 +407,8 @@ h4 { font-size: 1.1rem; }
   appearance: none;
 }
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  outline: none; border-color: var(--navy); background: var(--white);
-  box-shadow: 0 0 0 3px rgba(11,29,51,0.09);
+  outline: none; border-color: var(--accent); background: var(--white);
+  box-shadow: 0 0 0 3px rgba(196,30,58,0.12);
 }
 .form-input::placeholder, .form-textarea::placeholder { color: var(--silver); }
 .form-textarea { min-height: 140px; resize: vertical; }
@@ -479,7 +479,7 @@ h4 { font-size: 1.1rem; }
 .instagram-cta svg { width: 18px; height: 18px; }
 
 /* ── Footer ── */
-.footer { background: #060E1A; color: var(--silver); padding: 4.5rem 0 2rem; }
+.footer { background: #0A0A0A; color: var(--silver); padding: 4.5rem 0 2rem; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3.5rem; }
 .footer-brand .logo { margin-bottom: 1.25rem; }
 .footer-brand p { font-size: 0.875rem; line-height: 1.85; color: var(--silver); max-width: 270px; }
@@ -526,9 +526,9 @@ h4 { font-size: 1.1rem; }
   display: flex; align-items: center; justify-content: center;
 }
 .case-card-img svg { width: 56px; height: 56px; color: rgba(255,255,255,0.2); stroke-width: 1.2; }
-.case-img-1 { background: linear-gradient(135deg, #0B2545 0%, #1B4476 100%); }
-.case-img-2 { background: linear-gradient(135deg, #162032 0%, #1D3A5F 100%); }
-.case-img-3 { background: linear-gradient(135deg, #0E1F38 0%, #1A3356 100%); }
+.case-img-1 { background: linear-gradient(135deg, #1C0A0E 0%, #3D1018 100%); }
+.case-img-2 { background: linear-gradient(135deg, #130A0B 0%, #2E0D13 100%); }
+.case-img-3 { background: linear-gradient(135deg, #0F0808 0%, #250B0F 100%); }
 .case-card-badges { position: absolute; top: 1rem; left: 1rem; right: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .case-badge {
   background: var(--accent); color: var(--white);
