@@ -56,7 +56,7 @@
       const body = encodeURIComponent(
         `Name: ${d.name || ''}\nCompany: ${d.company || 'N/A'}\nEmail: ${d.email || ''}\nPhone: ${d.phone || 'N/A'}\nService Interest: ${d.service || 'General'}\n\nMessage:\n${d.message || ''}`
       );
-      window.location.href = `mailto:info@encompasstp.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:ssmith@encompasstp.com?cc=seans%40encompasstp.com%2Cjason%40encompasstp.com&subject=${subject}&body=${body}`;
       this.style.display = 'none';
       if (success) success.classList.add('show');
     });
@@ -103,7 +103,7 @@
       if (msg.includes('rfi') || msg.includes('rfp') || msg.includes('bid') || msg.includes('submit'))
         return 'Please use our <a href="contact.html#rfi" style="color:var(--accent);font-weight:600;">RFI / RFP intake form</a> and our team will respond within one business day.';
       if (msg.includes('deck') || msg.includes('capabilities') || msg.includes('brochure'))
-        return 'We\'d be happy to send our capabilities deck. Email us at <strong>info@encompasstp.com</strong> or call <strong>(714) 920-5462</strong>.';
+        return 'We\'d be happy to send our capabilities deck. Email us at <strong>ssmith@encompasstp.com</strong> or call <strong>(714) 920-5462</strong>.';
       if (msg.includes('business development') || msg.includes('speak') || msg.includes('call') || msg.includes('bd'))
         return 'You can reach Sean Smith, our Business Development lead, directly at <a href="mailto:ssmith@encompasstp.com" style="color:var(--accent);font-weight:600;">ssmith@encompasstp.com</a> or call <strong>(714) 920-5462</strong>.';
       if (msg.includes('license') || msg.includes('licensed'))
