@@ -587,12 +587,12 @@ h4 { font-size: 1.1rem; }
 .chat-widget { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 9999; }
 .chat-trigger {
   width: 84px; height: 84px; border-radius: 50%;
-  background: var(--navy); border: none; cursor: pointer;
+  background: var(--accent); border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: all var(--ease);
+  box-shadow: 0 4px 24px rgba(196,30,58,0.5); transition: all var(--ease);
   position: relative;
 }
-.chat-trigger:hover { background: var(--navy-light); transform: scale(1.05); }
+.chat-trigger:hover { background: #a01830; transform: scale(1.05); }
 .chat-trigger svg { width: 30px; height: 30px; color: var(--white); }
 .chat-icon-close { display: none; }
 .chat-widget.open .chat-icon-open { display: none; }
