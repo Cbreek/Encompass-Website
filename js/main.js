@@ -56,7 +56,7 @@
       const body = encodeURIComponent(
         `Name: ${d.name || ''}\nCompany: ${d.company || 'N/A'}\nEmail: ${d.email || ''}\nPhone: ${d.phone || 'N/A'}\nService Interest: ${d.service || 'General'}\n\nMessage:\n${d.message || ''}`
       );
-      window.location.href = `mailto:ssmith@encompasstp.com?cc=seans%40encompasstp.com%2Cjason%40encompasstp.com&subject=${subject}&body=${body}`;
+      window.location.href = `mailto:ssmith@encompasstp.com?cc=seans%40encompasstp.com%2Cjasonv%40encompasstp.com&subject=${subject}&body=${body}`;
       this.style.display = 'none';
       if (success) success.classList.add('show');
     });
