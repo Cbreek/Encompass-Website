@@ -586,7 +586,7 @@ h4 { font-size: 1.1rem; }
 /* ── Chat Widget ── */
 .chat-widget { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 9999; }
 .chat-trigger {
-  width: 66px; height: 66px; border-radius: 50%;
+  width: 76px; height: 76px; border-radius: 50%;
   background: var(--navy); border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: all var(--ease);
