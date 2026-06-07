@@ -512,12 +512,12 @@ h4 { font-size: 1.1rem; }
   padding: 0.625rem 1.125rem;
   font-family: var(--font); font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.07em; text-transform: uppercase;
-  background: transparent; color: var(--silver-light);
-  border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius);
+  background: var(--accent); color: var(--white);
+  border: 1px solid var(--accent); border-radius: var(--radius);
   cursor: pointer; transition: all var(--ease); white-space: nowrap;
 }
 .btn-gc svg { width: 13px; height: 13px; flex-shrink: 0; }
-.btn-gc:hover { background: rgba(255,255,255,0.08); border-color: var(--white); color: var(--white); }
+.btn-gc:hover { background: #a01830; border-color: #a01830; color: var(--white); }
 @media (max-width: 1200px) { .nav-gc { display: none; } }
 
 /* ── Case Studies ── */
@@ -586,14 +586,14 @@ h4 { font-size: 1.1rem; }
 /* ── Chat Widget ── */
 .chat-widget { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 9999; }
 .chat-trigger {
-  width: 76px; height: 76px; border-radius: 50%;
+  width: 84px; height: 84px; border-radius: 50%;
   background: var(--navy); border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: all var(--ease);
   position: relative;
 }
 .chat-trigger:hover { background: var(--navy-light); transform: scale(1.05); }
-.chat-trigger svg { width: 24px; height: 24px; color: var(--white); }
+.chat-trigger svg { width: 30px; height: 30px; color: var(--white); }
 .chat-icon-close { display: none; }
 .chat-widget.open .chat-icon-open { display: none; }
 .chat-widget.open .chat-icon-close { display: block; }
