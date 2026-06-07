@@ -102,8 +102,8 @@ h4 { font-size: 1.1rem; }
   padding: 1.375rem 2rem;
   max-width: var(--max-w); margin: 0 auto;
 }
-.logo { display: flex; align-items: center; }
-.site-logo { height: 72px; width: auto; display: block; }
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+.site-logo { height: 56px; width: auto; display: block; }
 
 .nav-links { display: flex; align-items: center; gap: 2.25rem; }
 .nav-link {
