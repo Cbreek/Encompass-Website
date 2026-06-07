@@ -247,6 +247,29 @@
     #send-btn:active { background: var(--red-dark); }
     #send-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
 
+    /* Save contacts button */
+    #contacts-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 100%;
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.125rem;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      margin-top: 1rem;
+      -webkit-tap-highlight-color: transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    #contacts-btn:active { border-color: var(--red); color: var(--red); }
+
     /* Success */
     #success-msg {
       display: none;
@@ -372,9 +395,16 @@
     </div>
   </div>
 
-  <!-- Send button -->
+  <!-- Action buttons -->
+  <button id="contacts-btn" onclick="saveToContacts()">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:22px;height:22px;flex-shrink:0;">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+    </svg>
+    SAVE TO IPHONE CONTACTS
+  </button>
+
   <button id="send-btn" onclick="sendOutreach()">
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:22px;height:22px;flex-shrink:0;">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
     </svg>
     SEND OUTREACH EMAIL
@@ -382,10 +412,10 @@
 
   <div id="success-msg">
     <p>✓ Your email client has opened.</p>
-    <span>Hit Send in your email app to deliver the outreach.</span>
+    <span>Hit Send in your email app to deliver the outreach. Contact saved if you tapped above.</span>
   </div>
 
-  <span class="clear-link" onclick="clearForm()">Clear form and start new scan</span>
+  <span class="clear-link" onclick="clearForm()">Clear form · start new scan</span>
 </div>
 
 <script>
@@ -449,15 +479,15 @@
     const body = encodeURIComponent(
 `Hi ${firstName},
 
-It was great meeting you at the ${event}. I really enjoyed our conversation${company ? ' and learning more about ' + company : ''}.
+Thank you again for the time spent connecting at the ${event}${company ? ' — it was great learning more about ' + company : ''}.
 
-As promised, here's our direct portal so you can review what Encompass Technology Partners brings to the table for commercial AV, structured cabling, enterprise WiFi, physical security, and low-voltage infrastructure:
+As promised, here is the direct portal link for Encompass Technology Partners so your team can easily review our capabilities in commercial AV, structured cabling, enterprise WiFi, physical security, and low-voltage infrastructure:
 
 https://encompasstp.com
 
-If your team has an upcoming RFI or RFP ready for review, you can drop your scope document directly into our GC & Architect Portal on the Contact page — or simply reply here and I'll follow up personally.
+If your project management or design team has an upcoming RFI or RFP package ready for review, you can drop your scope documents directly into our GC & Architect Portal on the Contact page.
 
-Looking forward to staying connected.
+I look forward to following up further regarding your upcoming projects — please don't hesitate to reach out directly in the meantime.
 
 Best regards,
 ${partnerName}
@@ -468,6 +498,7 @@ ${partnerEmail}`
 
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 
+
     scanCount++;
     document.getElementById('scan-count').textContent = scanCount;
 
@@ -476,6 +507,38 @@ ${partnerEmail}`
     msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
     setTimeout(() => { msg.style.display = 'none'; }, 6000);
+  }
+
+  function saveToContacts() {
+    const first   = (document.getElementById('f_first').value || '').trim();
+    const last    = (document.getElementById('f_last').value || '').trim();
+    const company = (document.getElementById('f_company').value || '').trim();
+    const email   = (document.getElementById('f_email').value || '').trim();
+    const phone   = (document.getElementById('f_phone').value || '').trim();
+
+    if (!first && !last) { alert('Enter at least a first or last name first.'); return; }
+
+    const vcard = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      `FN:${[first, last].filter(Boolean).join(' ')}`,
+      `N:${last};${first};;;`,
+      company ? `ORG:${company}` : '',
+      email   ? `EMAIL;TYPE=WORK:${email}` : '',
+      phone   ? `TEL;TYPE=WORK,VOICE:${phone}` : '',
+      'NOTE:Met via ETP Field Scanner',
+      'END:VCARD'
+    ].filter(Boolean).join('\n');
+
+    const blob = new Blob([vcard], { type: 'text/vcard' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url;
+    a.download = `${[first, last].filter(Boolean).join('-') || 'contact'}.vcf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 
   function clearForm() {
