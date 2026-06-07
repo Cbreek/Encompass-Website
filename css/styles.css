@@ -103,7 +103,7 @@ h4 { font-size: 1.1rem; }
   max-width: var(--max-w); margin: 0 auto;
 }
 .logo { display: flex; align-items: center; }
-.site-logo { height: 56px; width: auto; display: block; }
+.site-logo { height: 72px; width: auto; display: block; }
 
 .nav-links { display: flex; align-items: center; gap: 2.25rem; }
 .nav-link {
