@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@theme inline {
+  --color-rich-black: #121212;
+  --color-graphite: #1f1f1f;
+  --color-crimson: #C41E3A;
+  --color-foreground: #f5f5f5;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #121212;
+    color: #f5f5f5;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background-color: #C41E3A; color: #ffffff; }
+}
+
+@keyframes hero-rise {
+  0%   { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+}
+@keyframes hero-zoom {
+  0%   { transform: scale(1) translate3d(0, 0, 0);          }
+  50%  { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+  100% { transform: scale(1) translate3d(0, 0, 0);          }
+}
+@keyframes intro-fade-in {
+  0%   { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0);    }
+}
+
+.animate-hero-rise {
+  animation: hero-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-hero-zoom {
+  animation: hero-zoom 28s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-rise,
+  .animate-hero-zoom { animation: none !important; }
+}
