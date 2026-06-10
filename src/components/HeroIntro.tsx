@@ -1,25 +1,65 @@
 import { useEffect, useState } from 'react'
 import capAv from '../assets/cap-av.jpg'
 
+// Preload this so the fade-out lands on a fully loaded image
+const FIRST_HERO =
+  'https://workforce-reimagined.lovable.app/__l5e/assets-v1/a48aef79-42ab-4e3b-8bce-8222778dcedf/hero-boardroom-dvled.jpg'
+
+const FADE_MS = 1000
+
 export function HeroIntro({ onDone }: { onDone: () => void }) {
   const [visible, setVisible] = useState(false)
   const [leaving, setLeaving] = useState(false)
 
   useEffect(() => {
+    let cancelled = false
+
+    // Begin loading the first hero image immediately so it's ready when we need it
+    let imgReady = false
+    const preload = new window.Image()
+    preload.onload = () => { imgReady = true }
+    preload.onerror = () => { imgReady = true } // don't block on network failure
+    preload.src = FIRST_HERO
+
     const t0 = window.setTimeout(() => setVisible(true), 60)
-    const t1 = window.setTimeout(() => setLeaving(true), 2400)
-    const t2 = window.setTimeout(() => onDone(), 3300)
+
+    // After minimum display time, wait for the image (up to 1.5 s extra) then fade
+    const t1 = window.setTimeout(() => {
+      const doLeave = () => {
+        if (cancelled) return
+        setLeaving(true)
+        window.setTimeout(() => { if (!cancelled) onDone() }, FADE_MS + 80)
+      }
+
+      if (imgReady) {
+        doLeave()
+      } else {
+        let waited = 0
+        const poll = window.setInterval(() => {
+          waited += 100
+          if (imgReady || waited >= 1500) {
+            window.clearInterval(poll)
+            doLeave()
+          }
+        }, 100)
+      }
+    }, 2400)
+
     return () => {
+      cancelled = true
       window.clearTimeout(t0)
       window.clearTimeout(t1)
-      window.clearTimeout(t2)
     }
   }, [onDone])
 
   return (
     <div
       className="fixed inset-0 z-[60] overflow-hidden bg-[#121212]"
-      style={{ opacity: leaving ? 0 : 1, transition: 'opacity 900ms ease-out' }}
+      style={{
+        opacity: leaving ? 0 : 1,
+        transition: `opacity ${FADE_MS}ms ease-out`,
+        pointerEvents: leaving ? 'none' : 'auto',
+      }}
       aria-hidden="true"
     >
       <img
@@ -39,12 +79,12 @@ export function HeroIntro({ onDone }: { onDone: () => void }) {
           style={{
             opacity: leaving ? 0 : visible ? 1 : 0,
             transform: `translateY(${visible && !leaving ? '0' : '14px'})`,
-            transition: 'opacity 1100ms ease-out, transform 1100ms ease-out',
+            transition: 'opacity 800ms ease-out, transform 800ms ease-out',
           }}
         >
           <h1
             className="text-4xl leading-[0.95] tracking-tight text-white sm:text-5xl md:text-7xl lg:text-8xl"
-            style={{ fontFamily: "Instrument Serif, Georgia, serif" }}
+            style={{ fontFamily: 'Instrument Serif, Georgia, serif' }}
           >
             Encompass <br className="hidden sm:block" />
             Technology{' '}

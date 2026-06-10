@@ -24,7 +24,8 @@ export default function App() {
 
   const handleIntroDone = () => {
     setIntroPlaying(false)
-    setRiseKey((k) => k + 1)
+    // Small delay so the intro unmounts before hero text animations fire
+    window.setTimeout(() => setRiseKey((k) => k + 1), 60)
   }
 
   const goGC = () => { setPage('gc'); setMobileOpen(false) }
