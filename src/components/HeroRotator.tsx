@@ -1,29 +1,23 @@
 import { useEffect, useState } from 'react'
-import capAv from '../assets/cap-av.jpg'
-import capFiber from '../assets/cap-fiber.jpg'
+
+const BASE = 'https://workforce-reimagined.lovable.app/__l5e/assets-v1'
 
 const SLIDES = [
   {
-    src: capAv,
-    alt: 'Modern AV integration in an executive boardroom',
-    gradient: 'from-[#1a1020]/60 via-transparent to-[#121212]/90',
+    url: `${BASE}/a48aef79-42ab-4e3b-8bce-8222778dcedf/hero-boardroom-dvled.jpg`,
+    alt: 'Encompass-installed curved DVLED video wall in an executive boardroom',
   },
   {
-    src: capFiber,
-    alt: 'Precision fiber optic cabling installation',
-    gradient: 'from-[#101520]/60 via-transparent to-[#121212]/90',
+    url: `${BASE}/181c1ec9-24e5-48d6-97e0-79cb36bdff65/hero-speaker-rig.jpg`,
+    alt: 'Suspended line-array speaker rig in a circular truss',
   },
   {
-    src: null,
-    alt: '',
-    gradient: 'from-[#101520]/60 via-transparent to-[#121212]/90',
-    bgClass: 'bg-gradient-to-br from-[#0d1a2a] via-[#121212] to-[#0a0a0f]',
+    url: `${BASE}/fec5a66c-6e2e-468c-9b65-644f57a3017d/hero-led-install.jpg`,
+    alt: 'Large-format LED video wall installation in progress',
   },
   {
-    src: null,
-    alt: '',
-    gradient: 'from-[#1a0a0a]/60 via-transparent to-[#121212]/90',
-    bgClass: 'bg-gradient-to-br from-[#1a0810] via-[#121212] to-[#0a0a0f]',
+    url: `${BASE}/4d781ae9-6af2-463a-b594-1907165beda9/hero-datacenter-sharp.jpg`,
+    alt: 'Dark data center hallway lined with active server racks',
   },
 ]
 
@@ -42,24 +36,19 @@ export function HeroRotator() {
   return (
     <div className="absolute inset-0 overflow-hidden">
       {SLIDES.map((slide, i) => (
-        <div
-          key={i}
-          className="absolute inset-0 transition-opacity duration-[1400ms] ease-in-out"
-          style={{ opacity: i === index ? 1 : 0 }}
-        >
-          {slide.src ? (
-            <img
-              src={slide.src}
-              alt={i === 0 ? slide.alt : ''}
-              className="absolute inset-0 h-full w-full object-cover animate-hero-zoom"
-              loading={i === 0 ? 'eager' : 'lazy'}
-            />
-          ) : (
-            <div className={`absolute inset-0 animate-hero-zoom ${slide.bgClass ?? ''}`} />
-          )}
-        </div>
+        <img
+          key={slide.url}
+          src={slide.url}
+          alt={i === 0 ? slide.alt : ''}
+          className="absolute inset-0 h-full w-full object-cover animate-hero-zoom"
+          style={{
+            opacity: i === index ? 1 : 0,
+            transition: 'opacity 1400ms ease-in-out',
+          }}
+          loading={i === 0 ? 'eager' : 'lazy'}
+        />
       ))}
-      <div className="pointer-events-none absolute inset-0 bg-[#1a1a20]/55" />
+      <div className="pointer-events-none absolute inset-0 bg-[#1a1a20]/60" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1a1a20]/50 via-transparent to-[#121212]/90" />
     </div>
   )
