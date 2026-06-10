@@ -426,6 +426,62 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── Live From the Field (Instagram) ── */}
+      <section style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+          <Reveal>
+            <div className="grid gap-16 md:grid-cols-2 md:items-center">
+              {/* Left */}
+              <div>
+                <h2
+                  className="text-5xl leading-tight md:text-6xl"
+                  style={{ fontFamily: 'Instrument Serif, Georgia, serif' }}
+                >
+                  <em className="italic" style={{ color: '#e87722' }}>Live</em> from the field.
+                </h2>
+                <p className="mt-5 max-w-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                  Install days, rack builds, commissioning, and the occasional proud-of-this moment — straight from our crews on site.
+                </p>
+                <a
+                  href="https://instagram.com/encompasstp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-3 px-6 py-4 text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300"
+                  style={{ border: '1px solid rgba(255,255,255,0.2)', color: '#f5f5f5' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = '#e87722'; (e.currentTarget as HTMLAnchorElement).style.color = '#e87722' }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.2)'; (e.currentTarget as HTMLAnchorElement).style.color = '#f5f5f5' }}
+                >
+                  <span style={{ color: '#e87722' }}>●</span> Follow @encompasstp
+                </a>
+                <p className="mt-8 text-[10px] uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.2)' }}>
+                  Instagram feed embed pending account integration.
+                </p>
+              </div>
+              {/* Right — 3×2 photo grid */}
+              <div className="grid grid-cols-3 gap-1">
+                {[
+                  { src: `https://workforce-reimagined.lovable.app/__l5e/assets-v1/a48aef79-42ab-4e3b-8bce-8222778dcedf/hero-boardroom-dvled.jpg`, alt: 'Boardroom DVLED installation' },
+                  { src: `https://workforce-reimagined.lovable.app/__l5e/assets-v1/fec5a66c-6e2e-468c-9b65-644f57a3017d/hero-led-install.jpg`, alt: 'LED wall installation in progress' },
+                  { src: `https://workforce-reimagined.lovable.app/__l5e/assets-v1/181c1ec9-24e5-48d6-97e0-79cb36bdff65/hero-speaker-rig.jpg`, alt: 'Speaker rig in circular truss' },
+                  { src: capAv, alt: 'AV integration project' },
+                  { src: capFiber, alt: 'Structured cabling and fiber' },
+                  { src: `https://workforce-reimagined.lovable.app/__l5e/assets-v1/4d781ae9-6af2-463a-b594-1907165beda9/hero-datacenter-sharp.jpg`, alt: 'Data center infrastructure' },
+                ].map((img, i) => (
+                  <div key={i} className="aspect-square overflow-hidden" style={{ background: '#1a1a1a' }}>
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── GC & Architects Portal ── */}
       <section id="gc" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
