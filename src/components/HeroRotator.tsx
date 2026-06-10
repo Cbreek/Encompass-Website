@@ -17,7 +17,8 @@ const SLIDES = [
   },
   {
     url: `${BASE}/4d781ae9-6af2-463a-b594-1907165beda9/hero-datacenter-sharp.jpg`,
-    alt: 'Dark data center hallway lined with active server racks',
+    alt: 'Data center hallway lined with active server racks',
+    filter: 'brightness(1.55) contrast(1.2) saturate(0.85)',
   },
 ]
 
@@ -44,6 +45,7 @@ export function HeroRotator() {
           style={{
             opacity: i === index ? 1 : 0,
             transition: 'opacity 1400ms ease-in-out',
+            filter: slide.filter ?? undefined,
           }}
           loading={i === 0 ? 'eager' : 'lazy'}
         />
