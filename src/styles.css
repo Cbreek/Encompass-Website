@@ -9,7 +9,7 @@
 @theme inline {
   --color-rich-black: #121212;
   --color-graphite: #1f1f1f;
-  --color-crimson: #C41E3A;
+  --color-crimson: #e87722;
   --color-foreground: #f5f5f5;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -24,7 +24,7 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  ::selection { background-color: #C41E3A; color: #ffffff; }
+  ::selection { background-color: #e87722; color: #ffffff; }
 }
 
 @keyframes hero-rise {

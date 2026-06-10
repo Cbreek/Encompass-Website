@@ -12,7 +12,7 @@ export function NavBrand() {
           <line x1="0" y1="-28" x2="0" y2="28" />
           <line x1="-28" y1="0" x2="28" y2="0" />
         </g>
-        <polygon points="0,-26 6,0 0,6 -6,0" fill="#C41E3A" />
+        <polygon points="0,-26 6,0 0,6 -6,0" fill="#e87722" />
         <polygon points="0,26 6,0 0,-6 -6,0" fill="currentColor" opacity="0.7" />
         <polygon points="26,0 0,6 -6,0 0,-6" fill="currentColor" opacity="0.25" />
         <polygon points="-26,0 0,6 6,0 0,-6" fill="currentColor" opacity="0.25" />
@@ -23,7 +23,7 @@ export function NavBrand() {
           className="text-lg font-bold tracking-tight md:text-xl"
           style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
         >
-          <span style={{ color: '#C41E3A' }}>Enc</span>
+          <span style={{ color: '#e87722' }}>Enc</span>
           <span className="text-white">ompass</span>
         </span>
         <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/80 md:text-[11px]">

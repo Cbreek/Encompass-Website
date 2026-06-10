@@ -48,7 +48,7 @@ export function HeroIntro({ onDone }: { onDone: () => void }) {
           >
             Encompass <br className="hidden sm:block" />
             Technology{' '}
-            <em className="italic" style={{ color: '#C41E3A' }}>Partners</em>
+            <em className="italic" style={{ color: '#e87722' }}>Partners</em>
           </h1>
         </div>
       </div>

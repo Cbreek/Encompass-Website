@@ -3,7 +3,7 @@ export function FloatingChat() {
     <a
       href="#contact"
       className="fixed bottom-8 right-8 z-50 flex h-[84px] w-[84px] items-center justify-center rounded-full border-2 transition-all duration-300 hover:scale-105"
-      style={{ borderColor: '#C41E3A', background: 'transparent' }}
+      style={{ borderColor: '#e87722', background: 'transparent' }}
       aria-label="Contact us"
     >
       <svg

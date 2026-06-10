@@ -41,7 +41,7 @@ export default function App() {
             {['#capabilities', '#markets', '#projects', '#about', '#contact'].map((href, i) => (
               <a key={href} href={href} className="transition-colors hover:text-white"
                 style={{ color: 'rgba(255,255,255,0.8)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#C41E3A')}
+                onMouseEnter={e => (e.currentTarget.style.color = '#e87722')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.8)')}
               >
                 {['Services', 'Markets', 'Projects', 'About', 'Contact'][i]}
@@ -66,7 +66,7 @@ export default function App() {
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-20 md:px-10" key={riseKey}>
           <span
             className="mb-5 block animate-hero-rise text-xs font-bold uppercase tracking-[0.4em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
-            style={{ color: '#C41E3A', animationDelay: '200ms', animationFillMode: 'both' }}
+            style={{ color: '#e87722', animationDelay: '200ms', animationFillMode: 'both' }}
           >
             Intelligent Infrastructure
           </span>
@@ -75,7 +75,7 @@ export default function App() {
             style={{ fontFamily: 'Instrument Serif, Georgia, serif', animationDelay: '500ms', animationFillMode: 'both' }}
           >
             Our legacy is the{' '}
-            <em className="italic" style={{ color: '#C41E3A' }}>expertise</em>
+            <em className="italic" style={{ color: '#e87722' }}>expertise</em>
             <br />
             behind yours.
           </h1>
@@ -84,7 +84,7 @@ export default function App() {
               href="#contact"
               className="px-10 py-5 text-xs font-bold uppercase tracking-[0.25em] transition-all duration-500"
               style={{ background: 'white', color: '#121212' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#C41E3A'; (e.currentTarget as HTMLAnchorElement).style.color = 'white' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#e87722'; (e.currentTarget as HTMLAnchorElement).style.color = 'white' }}
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'white'; (e.currentTarget as HTMLAnchorElement).style.color = '#121212' }}
             >
               Start a Project
@@ -103,10 +103,10 @@ export default function App() {
               { stat: 'Top 13%', label: 'California Low-Voltage Contractors' },
               { stat: '#1064391', label: 'C-7 Licensed & Insured' },
             ].map((p) => (
-              <div key={p.label} className="space-y-4 pl-5" style={{ borderLeft: '2px solid rgba(196,30,58,0.6)' }}>
+              <div key={p.label} className="space-y-4 pl-5" style={{ borderLeft: '2px solid rgba(232,119,34,0.6)' }}>
                 <div
                   className="text-5xl italic md:text-6xl"
-                  style={{ fontFamily: 'Instrument Serif, Georgia, serif', color: '#C41E3A' }}
+                  style={{ fontFamily: 'Instrument Serif, Georgia, serif', color: '#e87722' }}
                 >
                   {p.stat}
                 </div>
@@ -144,7 +144,7 @@ export default function App() {
       <section style={{ borderTop: '1px solid rgba(255,255,255,0.1)', background: 'rgba(31,31,31,0.3)' }}>
         <div className="mx-auto grid max-w-7xl gap-16 px-6 py-32 md:grid-cols-2 md:px-10">
           <div>
-            <span className="mb-6 block text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: '#C41E3A' }}>
+            <span className="mb-6 block text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: '#e87722' }}>
               The Intelligence Layer
             </span>
             <h2
@@ -166,7 +166,7 @@ export default function App() {
               infrastructure becomes a single intelligent surface. One that earns
               its keep every minute of every day.
             </p>
-            <div className="pt-4 pl-6" style={{ borderLeft: '2px solid #C41E3A' }}>
+            <div className="pt-4 pl-6" style={{ borderLeft: '2px solid #e87722' }}>
               <p
                 className="text-2xl italic"
                 style={{ fontFamily: 'Instrument Serif, Georgia, serif', color: '#f5f5f5' }}
@@ -194,7 +194,7 @@ export default function App() {
               <p className="text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 Encompass Technology Partners was founded in 2019 by three veterans of
                 the commercial AV and low-voltage industry, with more than{' '}
-                <span style={{ color: '#C41E3A' }}>80 combined years</span> designing and
+                <span style={{ color: '#e87722' }}>80 combined years</span> designing and
                 deploying mission-critical systems across the West Coast.
               </p>
               <p className="mt-6 leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
@@ -202,7 +202,7 @@ export default function App() {
                 a principal at the table, a senior engineer on the drawings, and a
                 certified technician on site. No layers. No handoffs. No surprises.
               </p>
-              <p className="mt-6 text-sm font-bold uppercase tracking-[0.25em] md:text-base" style={{ color: '#C41E3A' }}>
+              <p className="mt-6 text-sm font-bold uppercase tracking-[0.25em] md:text-base" style={{ color: '#e87722' }}>
                 Top 13% of California Low-Voltage Contractors
               </p>
             </Reveal>
@@ -216,10 +216,10 @@ export default function App() {
                   <div className="h-full p-10" style={{ background: '#121212' }}>
                     <div
                       className="mb-8 h-12 w-12 rounded-full"
-                      style={{ border: '1px solid rgba(196,30,58,0.4)', background: 'rgba(196,30,58,0.1)' }}
+                      style={{ border: '1px solid rgba(232,119,34,0.4)', background: 'rgba(232,119,34,0.1)' }}
                     />
                     <div className="text-2xl" style={{ fontFamily: 'Instrument Serif, Georgia, serif' }}>{p.name}</div>
-                    <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: '#C41E3A' }}>
+                    <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: '#e87722' }}>
                       {p.role}
                     </div>
                     <p className="mt-6 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.focus}</p>
@@ -305,7 +305,7 @@ export default function App() {
                     className="mb-8 aspect-[4/3] w-full transition-all"
                     style={{ background: 'linear-gradient(135deg, #1f1f1f, #121212)', outline: '1px solid rgba(255,255,255,0.1)', outlineOffset: '-1px' }}
                   />
-                  <div className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: '#C41E3A' }}>
+                  <div className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: '#e87722' }}>
                     {p.location}
                   </div>
                   <h3 className="mt-3 text-2xl" style={{ fontFamily: 'Instrument Serif, Georgia, serif' }}>{p.title}</h3>
@@ -346,7 +346,7 @@ export default function App() {
                   key={brand}
                   className="flex aspect-[3/2] items-center justify-center text-sm font-semibold uppercase tracking-[0.2em] transition-colors cursor-default"
                   style={{ background: '#121212', color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#C41E3A')}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#e87722')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
                 >
                   {brand}
@@ -363,7 +363,7 @@ export default function App() {
           <Reveal>
             <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
               <div>
-                <span className="mb-3 block text-xs font-bold uppercase tracking-[0.3em]" style={{ color: '#C41E3A' }}>
+                <span className="mb-3 block text-xs font-bold uppercase tracking-[0.3em]" style={{ color: '#e87722' }}>
                   For General Contractors &amp; Architects
                 </span>
                 <h2 className="text-3xl md:text-4xl" style={{ fontFamily: 'Instrument Serif, Georgia, serif' }}>
@@ -378,9 +378,9 @@ export default function App() {
               <a
                 href="#contact"
                 className="shrink-0 px-10 py-5 text-xs font-bold uppercase tracking-[0.25em] transition-all duration-300"
-                style={{ background: '#C41E3A', color: 'white' }}
+                style={{ background: '#e87722', color: 'white' }}
                 onMouseEnter={e => (e.currentTarget.style.background = '#a01830')}
-                onMouseLeave={e => (e.currentTarget.style.background = '#C41E3A')}
+                onMouseLeave={e => (e.currentTarget.style.background = '#e87722')}
               >
                 Request a Bid Package →
               </a>
@@ -404,7 +404,7 @@ export default function App() {
                 Let's hear <br />
                 <em className="italic">from you.</em>
               </h2>
-              <div className="mb-10 h-0.5 w-16" style={{ background: '#C41E3A' }} />
+              <div className="mb-10 h-0.5 w-16" style={{ background: '#e87722' }} />
               <p className="mb-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 Encompass Technology Partners works directly with general contractors,
                 developers, architects, and end users on commercial technology projects
@@ -422,7 +422,7 @@ export default function App() {
                 </ContactRow>
                 <ContactRow icon="📞" label="Phone">
                   <a href="tel:+17149205462" style={{ color: 'rgba(255,255,255,0.85)' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = '#C41E3A')}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#e87722')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.85)')}
                   >
                     (714) 920-5462
@@ -430,7 +430,7 @@ export default function App() {
                 </ContactRow>
                 <ContactRow icon="✉" label="Email">
                   <a href="mailto:info@encompasstp.com" style={{ color: 'rgba(255,255,255,0.85)' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = '#C41E3A')}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#e87722')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.85)')}
                   >
                     info@encompasstp.com
@@ -478,7 +478,7 @@ export default function App() {
                       borderBottom: '1px solid rgba(255,255,255,0.2)',
                       color: '#f5f5f5',
                     }}
-                    onFocus={e => (e.currentTarget.style.borderBottomColor = '#C41E3A')}
+                    onFocus={e => (e.currentTarget.style.borderBottomColor = '#e87722')}
                     onBlur={e => (e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.2)')}
                   />
                 ))}
@@ -488,7 +488,7 @@ export default function App() {
                 defaultValue=""
                 className="w-full bg-transparent py-4 text-sm uppercase tracking-[0.2em] outline-none transition-colors"
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.2)', color: '#f5f5f5', background: '#121212' }}
-                onFocus={e => (e.currentTarget.style.borderBottomColor = '#C41E3A')}
+                onFocus={e => (e.currentTarget.style.borderBottomColor = '#e87722')}
                 onBlur={e => (e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.2)')}
               >
                 <option value="" disabled>Service of Interest — Select One</option>
@@ -507,14 +507,14 @@ export default function App() {
                 rows={3}
                 className="w-full resize-none bg-transparent py-4 text-sm leading-relaxed outline-none transition-colors"
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.2)', color: '#f5f5f5' }}
-                onFocus={e => (e.currentTarget.style.borderBottomColor = '#C41E3A')}
+                onFocus={e => (e.currentTarget.style.borderBottomColor = '#e87722')}
                 onBlur={e => (e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.2)')}
               />
               <button
                 type="submit"
                 className="mt-2 self-start pb-2 text-xs font-bold uppercase tracking-[0.3em] transition-colors text-white"
-                style={{ borderBottom: '2px solid #C41E3A' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#C41E3A')}
+                style={{ borderBottom: '2px solid #e87722' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#e87722')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'white')}
               >
                 Send Inquiry →
