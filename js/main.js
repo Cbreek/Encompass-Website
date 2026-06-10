@@ -1,144 +1,179 @@
-/* Encompass Technology Partners — Main JS */
+/* ============================================================
+   ENCOMPASS TECHNOLOGY PARTNERS — Main JS
+   ============================================================ */
 
-(function () {
-  'use strict';
+const CDN = 'https://workforce-reimagined.lovable.app/__l5e/assets-v1/';
 
-  /* ── Sticky Nav ── */
-  const header = document.querySelector('.site-header');
-  if (header) {
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 60);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+const HERO_SLIDES = [
+  CDN + 'a48aef79-42ab-4e3b-8bce-8222778dcedf/hero-boardroom-dvled.jpg',
+  CDN + '181c1ec9-24e5-48d6-97e0-79cb36bdff65/hero-speaker-rig.jpg',
+  CDN + 'fec5a66c-6e2e-468c-9b65-644f57a3017d/hero-led-install.jpg',
+  CDN + '4d781ae9-6af2-463a-b594-1907165beda9/hero-datacenter-sharp.jpg',
+];
+
+// ── Hero Intro ──────────────────────────────────────────────
+function runHeroIntro(onDone) {
+  const intro  = document.getElementById('hero-intro');
+  if (!intro) { onDone(); return; }
+
+  const bg     = intro.querySelector('.intro-bg');
+  const center = intro.querySelector('.intro-center');
+
+  if (bg) {
+    bg.src = HERO_SLIDES[0];
+    bg.onload = () => {};
   }
 
-  /* ── Mobile Nav ── */
-  const toggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (toggle && navLinks) {
-    toggle.addEventListener('click', () => {
-      const open = toggle.classList.toggle('open');
-      navLinks.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        toggle.classList.remove('open');
-        navLinks.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      if (bg)     bg.classList.add('visible');
+      if (center) center.classList.add('visible');
+    }, 60);
+    setTimeout(() => {
+      if (center) { center.classList.remove('visible'); center.classList.add('leaving'); }
+    }, 2400);
+    setTimeout(() => {
+      intro.classList.add('leaving');
+    }, 2700);
+    setTimeout(() => {
+      intro.classList.add('gone');
+      onDone();
+    }, 3600);
+  });
+}
 
-  /* ── Active Nav Link ── */
-  const page = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === page || (page === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
+// ── Hero Rotator ────────────────────────────────────────────
+function initHeroRotator() {
+  const rotator = document.querySelector('.hero-rotator');
+  if (!rotator) return;
+
+  const slides = rotator.querySelectorAll('.hero-slide');
+  if (!slides.length) return;
+
+  slides.forEach((slide, i) => {
+    if (HERO_SLIDES[i]) slide.src = HERO_SLIDES[i];
   });
 
-  /* ── Scroll Fade-In ── */
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.08 }
-  );
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  slides[0].classList.add('active');
+  let current = 0;
 
-  /* ── Contact Form ── */
-  const form = document.getElementById('contactForm');
-  const success = document.querySelector('.form-success');
-  if (form) {
-    form.addEventListener('submit', function (e) {
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 6500);
+}
+
+// ── Hero Text Rise ──────────────────────────────────────────
+function riseHeroText() {
+  ['hero-label', 'hero-headline', 'hero-cta'].forEach(cls => {
+    const el = document.querySelector('.' + cls);
+    if (el) { el.classList.remove('risen'); void el.offsetWidth; el.classList.add('risen'); }
+  });
+}
+
+// ── Scroll Reveal ───────────────────────────────────────────
+function initReveal() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const delay = parseInt(el.dataset.delay || '0', 10);
+      setTimeout(() => el.classList.add('revealed'), delay);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
+// ── Mobile Nav ──────────────────────────────────────────────
+function initMobileNav() {
+  const toggle = document.querySelector('.nav-toggle');
+  const links  = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+}
+
+// ── Smooth Scroll ───────────────────────────────────────────
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        const navH = document.querySelector('.nav') ? document.querySelector('.nav').offsetHeight : 80;
+        const y = target.getBoundingClientRect().top + window.scrollY - navH;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+}
+
+// ── Floating Chat ───────────────────────────────────────────
+function initChat() {
+  const launcher = document.getElementById('chat-launcher');
+  const panel    = document.getElementById('chat-panel');
+  const form     = document.getElementById('chat-form');
+  const input    = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+  if (!launcher || !panel) return;
+
+  const iconChat  = launcher.querySelector('.icon-chat');
+  const iconClose = launcher.querySelector('.icon-close');
+
+  launcher.addEventListener('click', () => {
+    const isOpen = panel.classList.toggle('open');
+    if (iconChat)  iconChat.style.display  = isOpen ? 'none'  : 'block';
+    if (iconClose) iconClose.style.display = isOpen ? 'block' : 'none';
+  });
+
+  if (form && input && messages) {
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      const d = Object.fromEntries(new FormData(this));
-      const subject = encodeURIComponent(`Website Inquiry — ${d.name}${d.service ? ' | ' + d.service : ''}`);
-      const body = encodeURIComponent(
-        `Name: ${d.name || ''}\nCompany: ${d.company || 'N/A'}\nEmail: ${d.email || ''}\nPhone: ${d.phone || 'N/A'}\nService Interest: ${d.service || 'General'}\n\nMessage:\n${d.message || ''}`
-      );
-      window.location.href = `mailto:ssmith@encompasstp.com?cc=seans%40encompasstp.com%2Cjasonv%40encompasstp.com&subject=${subject}&body=${body}`;
-      this.style.display = 'none';
-      if (success) success.classList.add('show');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const uBubble = document.createElement('div');
+      uBubble.className = 'chat-bubble user';
+      uBubble.textContent = text;
+      messages.appendChild(uBubble);
+      input.value = '';
+      messages.scrollTop = messages.scrollHeight;
+
+      setTimeout(() => {
+        const bBubble = document.createElement('div');
+        bBubble.className = 'chat-bubble bot';
+        bBubble.textContent = 'Thanks — a member of our team will follow up shortly. For RFPs, use the GC & Architects portal above.';
+        messages.appendChild(bBubble);
+        messages.scrollTop = messages.scrollHeight;
+      }, 800);
     });
   }
+}
 
-  /* ── Chat Widget ── */
-  const chatWidget  = document.getElementById('chatWidget');
-  const chatTrigger = document.getElementById('chatTrigger');
-  const chatPanel   = document.getElementById('chatPanel');
-  const chatClose   = document.getElementById('chatClose');
-  const chatBody    = document.getElementById('chatBody');
-  const chatInput   = document.getElementById('chatInput');
-  const chatSend    = document.getElementById('chatSend');
+// ── Boot ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroRotator();
+  initMobileNav();
+  initSmoothScroll();
+  initChat();
 
-  if (chatWidget && chatTrigger) {
-    const openChat = () => {
-      chatWidget.classList.add('open');
-      chatPanel.classList.add('open');
-      chatPanel.setAttribute('aria-hidden', 'false');
-      if (chatInput) chatInput.focus();
-    };
-    const closeChat = () => {
-      chatWidget.classList.remove('open');
-      chatPanel.classList.remove('open');
-      chatPanel.setAttribute('aria-hidden', 'true');
-    };
-    chatTrigger.addEventListener('click', () =>
-      chatWidget.classList.contains('open') ? closeChat() : openChat()
-    );
-    if (chatClose) chatClose.addEventListener('click', closeChat);
+  runHeroIntro(() => {
+    riseHeroText();
+    initReveal();
+  });
 
-    const addBubble = (text, type) => {
-      const wrap = document.createElement('div');
-      wrap.className = 'chat-bubble chat-bubble-' + type;
-      const p = document.createElement('p');
-      p.innerHTML = text;
-      wrap.appendChild(p);
-      chatBody.appendChild(wrap);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    };
-
-    const botReply = (input) => {
-      const msg = input.toLowerCase();
-      if (msg.includes('rfi') || msg.includes('rfp') || msg.includes('bid') || msg.includes('submit'))
-        return 'Please use our <a href="contact.html#rfi" style="color:var(--accent);font-weight:600;">RFI / RFP intake form</a> and our team will respond within one business day.';
-      if (msg.includes('deck') || msg.includes('capabilities') || msg.includes('brochure'))
-        return 'We\'d be happy to send our capabilities deck. Email us at <strong>ssmith@encompasstp.com</strong> or call <strong>(714) 920-5462</strong>.';
-      if (msg.includes('business development') || msg.includes('speak') || msg.includes('call') || msg.includes('bd'))
-        return 'You can reach Sean Smith, our Business Development lead, directly at <a href="mailto:ssmith@encompasstp.com" style="color:var(--accent);font-weight:600;">ssmith@encompasstp.com</a> or call <strong>(714) 920-5462</strong>.';
-      if (msg.includes('license') || msg.includes('licensed'))
-        return 'Encompass Technology Partners holds active CA Low Voltage Systems License <strong>#1064391</strong>.';
-      if (msg.includes('service') || msg.includes('what do you do'))
-        return 'We provide AV integration, conferencing, control systems, structured cabling, WiFi/DAS, physical security, speech privacy, and network infrastructure for commercial clients.';
-      if (msg.includes('price') || msg.includes('cost') || msg.includes('quote'))
-        return 'Pricing depends on project scope. Submit an <a href="contact.html" style="color:var(--accent);font-weight:600;">RFP via our contact form</a> and we\'ll provide a detailed proposal.';
-      return 'Thank you for your message. Please <a href="contact.html" style="color:var(--accent);font-weight:600;">contact us directly</a> or call <strong>(714) 920-5462</strong> and we\'ll respond within one business day.';
-    };
-
-    document.querySelectorAll('.chat-qr-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const type = btn.dataset.reply;
-        const labels = { rfi: 'Submit an RFI / RFP', deck: 'Request a Capabilities Deck', bd: 'Speak with Business Development' };
-        document.getElementById('quickReplies') && (document.getElementById('quickReplies').style.display = 'none');
-        addBubble(labels[type] || '', 'user');
-        if (type === 'bd') {
-          window.location.href = 'mailto:ssmith@encompasstp.com?subject=Business%20Development%20Inquiry%20%E2%80%94%20Encompass%20Technology%20Partners&body=Hello%20Sean%2C%0A%0AI%20would%20like%20to%20connect%20regarding%20a%20project%20opportunity.%0A%0A';
-        }
-        setTimeout(() => addBubble(botReply(labels[type] || ''), 'bot'), 500);
-      });
-    });
-
-    const sendMessage = () => {
-      const val = chatInput.value.trim();
-      if (!val) return;
-      addBubble(val, 'user');
-      chatInput.value = '';
-      document.getElementById('quickReplies') && (document.getElementById('quickReplies').style.display = 'none');
-      setTimeout(() => addBubble(botReply(val), 'bot'), 500);
-    };
-
-    if (chatSend) chatSend.addEventListener('click', sendMessage);
-    if (chatInput) chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
-  }
-
-})();
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') riseHeroText();
+  });
+});

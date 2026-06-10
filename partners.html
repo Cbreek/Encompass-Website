@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For General Contractors &amp; Architects — Submit RFI, RFP, or Bid Package | Encompass</title>
+  <meta name="description" content="Direct channel for general contractors and architects. Submit an RFI, RFP, or bid package — qualified response from Encompass within one business day.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="wizard-nav">
+  <div class="section-inner wizard-nav-inner" style="display:flex;align-items:center;justify-content:space-between;padding-top:1.5rem;padding-bottom:1.5rem;">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-compass" viewBox="-40 -40 80 80" aria-hidden="true">
+        <circle r="34" fill="none" stroke="currentColor" stroke-width="3"/>
+        <g stroke="currentColor" stroke-width="1" opacity="0.45">
+          <line x1="0" y1="-28" x2="0" y2="28"/>
+          <line x1="-28" y1="0" x2="28" y2="0"/>
+        </g>
+        <polygon points="0,-26 6,0 0,6 -6,0" fill="#F97316"/>
+        <polygon points="0,26 6,0 0,-6 -6,0" fill="currentColor" opacity="0.7"/>
+        <polygon points="26,0 0,6 -6,0 0,-6" fill="currentColor" opacity="0.25"/>
+        <polygon points="-26,0 0,6 6,0 0,-6" fill="currentColor" opacity="0.25"/>
+        <circle r="2.5" fill="currentColor"/>
+      </svg>
+      <div class="nav-brand-text">
+        <span class="nav-brand-name"><span class="oj">Enc</span>ompass</span>
+        <span class="nav-brand-sub">Technology Partners</span>
+      </div>
+    </a>
+    <a href="index.html" class="wizard-back">← Back to site</a>
+  </div>
+</nav>
+
+<!-- Header -->
+<section class="wizard-header">
+  <div class="section-inner">
+    <span class="label-tag">A Direct Channel — General Contractors &amp; Architects</span>
+    <h1>Submit an RFI, RFP,<br>or <em>Bid Package.</em></h1>
+    <p>Skip the gatekeepers. Five questions, one upload — and a qualified response from Encompass lands in your inbox within one business day.</p>
+    <div class="wizard-promises">
+      <span>✓ Routed to the right contact</span>
+      <span>✓ Confidential</span>
+      <span>✓ 1 business day response</span>
+    </div>
+  </div>
+</section>
+
+<!-- Wizard -->
+<section>
+  <div class="section-inner">
+    <div class="wizard-box" id="wizard">
+
+      <!-- Doc type toggle -->
+      <div class="doc-toggle-label">Submission Type</div>
+      <div class="doc-toggle-grid" id="doc-toggle">
+        <button class="doc-type-btn active" data-type="RFI">RFI</button>
+        <button class="doc-type-btn" data-type="RFP">RFP</button>
+        <button class="doc-type-btn" data-type="Bid Package">Bid Package</button>
+      </div>
+
+      <!-- Stepper -->
+      <div class="stepper" id="stepper">
+        <div class="step-item">
+          <div class="step-num active" data-step="1">1</div>
+          <div class="step-line" data-line="1"></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num" data-step="2">2</div>
+          <div class="step-line" data-line="2"></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num" data-step="3">3</div>
+          <div class="step-line" data-line="3"></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num" data-step="4">4</div>
+          <div class="step-line" data-line="4"></div>
+        </div>
+        <div class="step-item" style="flex:0">
+          <div class="step-num" data-step="5">5</div>
+        </div>
+      </div>
+
+      <!-- Step content -->
+      <div id="step-content"></div>
+
+      <!-- Wizard footer -->
+      <div class="wizard-footer" id="wizard-footer">
+        <button class="btn-back" id="btn-back" disabled>← Back</button>
+        <button class="btn-continue" id="btn-next">Continue →</button>
+      </div>
+
+    </div><!-- /.wizard-box -->
+
+    <!-- Process strip -->
+    <div class="process-strip">
+      <div>
+        <div class="process-num">01</div>
+        <div class="process-title">Submit</div>
+        <p class="process-body">Wizard or scope upload routes to Encompass.</p>
+      </div>
+      <div>
+        <div class="process-num">02</div>
+        <div class="process-title">Consultation</div>
+        <p class="process-body">Phone or video review of requirements within 1 business day.</p>
+      </div>
+      <div>
+        <div class="process-num">03</div>
+        <div class="process-title">Site Walk</div>
+        <p class="process-body">We coordinate with your GC and design team on conditions.</p>
+      </div>
+      <div>
+        <div class="process-num">04</div>
+        <div class="process-title">Proposal</div>
+        <p class="process-body">Detailed technology scope, timeline, and pricing.</p>
+      </div>
+    </div>
+
+    <div class="wizard-contact-strip">
+      <span>Or email directly — info@encompasstp.com · (714) 920-5462</span>
+      <span>134 S. Glassell St., Orange, CA 92866 · CA License #1064391</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Floating Chat -->
+<button class="chat-launcher" id="chat-launcher" aria-label="Open chat">
+  <svg class="icon-chat" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+    <path d="M18 6 6 18M6 6l12 12"/>
+  </svg>
+</button>
+<div class="chat-panel" id="chat-panel">
+  <div class="chat-header">
+    <div class="chat-header-status">
+      <div class="chat-live-row">
+        <span class="chat-live-dot"></span>
+        <span class="chat-live-label">Live</span>
+      </div>
+      <span class="chat-sub-label">Project Inquiries</span>
+    </div>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="chat-bubble bot">Need help with your RFI or bid package? Ask us anything.</div>
+  </div>
+  <form class="chat-form" id="chat-form">
+    <input class="chat-input" id="chat-input" type="text" placeholder="Type a message…" autocomplete="off">
+    <button type="submit" class="chat-send">Send</button>
+  </form>
+</div>
+
+<script>
+/* ── Wizard ─────────────────────────────────────────── */
+const ROLES   = ['General Contractor','Architect','Building Owner','Developer / CRE','End User'];
+const PHASES  = ['Pre-design','Bidding','Design Development','Construction Documents','Active Construction','Punch / Closeout'];
+const SERVICES = [
+  'Audio / Visual Integration','Conferencing Systems','Control Systems',
+  'Ethernet & Structured Cabling','Wi-Fi & Wireless Infrastructure',
+  'Physical Security (CCTV / Access Control)','Speech Privacy & Sound Masking',
+  'Network Infrastructure','Multiple Services / Full Scope'
+];
+
+let currentStep = 1;
+let docType     = 'RFI';
+let fileName    = null;
+const data = { role:'', firm:'', project:'', location:'', size:'', systems:[], phase:'', dueDate:'', name:'', title:'', email:'', phone:'', notes:'' };
+
+// Doc type toggle
+document.getElementById('doc-toggle').addEventListener('click', e => {
+  const btn = e.target.closest('.doc-type-btn');
+  if (!btn) return;
+  document.querySelectorAll('.doc-type-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  docType = btn.dataset.type;
+});
+
+function updateStepper() {
+  for (let i = 1; i <= 5; i++) {
+    const num  = document.querySelector(`.step-num[data-step="${i}"]`);
+    const line = document.querySelector(`.step-line[data-line="${i}"]`);
+    if (num) {
+      num.classList.toggle('active', i === currentStep);
+      num.classList.toggle('done',   i <  currentStep);
+    }
+    if (line) line.classList.toggle('done', i < currentStep);
+  }
+  document.getElementById('btn-back').disabled = currentStep === 1;
+  const nextBtn = document.getElementById('btn-next');
+  if (currentStep === 5) {
+    nextBtn.textContent   = 'Send to Encompass';
+    nextBtn.className     = 'btn-send';
+  } else {
+    nextBtn.textContent   = 'Continue →';
+    nextBtn.className     = 'btn-continue';
+  }
+}
+
+function chip(label, active, onClick) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'chip-btn' + (active ? ' active' : '');
+  btn.textContent = label;
+  btn.addEventListener('click', () => { onClick(); renderStep(); });
+  return btn;
+}
+
+function field(label, key, type = 'text', full = false) {
+  const wrap = document.createElement('div');
+  wrap.className = 'field-group' + (full ? ' fields-full' : '');
+  const lbl = document.createElement('div');
+  lbl.className = 'field-label';
+  lbl.textContent = label;
+  const inp = document.createElement('input');
+  inp.type = type;
+  inp.className = type === 'date' ? 'field-date' : 'field-input';
+  inp.value = data[key] || '';
+  inp.placeholder = label;
+  inp.addEventListener('input', () => { data[key] = inp.value; });
+  wrap.appendChild(lbl);
+  wrap.appendChild(inp);
+  return wrap;
+}
+
+function renderStep() {
+  const content = document.getElementById('step-content');
+  content.innerHTML = '';
+
+  const block = document.createElement('div');
+  block.className = 'step-block';
+
+  if (currentStep === 1) {
+    block.innerHTML = '<h2>Who are you?</h2><p class="step-caption">So we route the right partner to your project.</p>';
+    const grid = document.createElement('div');
+    grid.className = 'chips-grid chips-grid-2';
+    ROLES.forEach(r => grid.appendChild(chip(r, data.role === r, () => data.role = r)));
+    block.appendChild(grid);
+  }
+
+  else if (currentStep === 2) {
+    block.innerHTML = '<h2>The project</h2><p class="step-caption">Where and how big.</p>';
+    const grid = document.createElement('div');
+    grid.className = 'fields-grid';
+    grid.appendChild(field('Firm Name',             'firm'));
+    grid.appendChild(field('Project Name',          'project'));
+    grid.appendChild(field('Project Location',      'location'));
+    grid.appendChild(field('Size (SF or # of rooms)', 'size'));
+    block.appendChild(grid);
+  }
+
+  else if (currentStep === 3) {
+    block.innerHTML = '<h2>Systems involved</h2><p class="step-caption">Select all that apply.</p>';
+    const grid = document.createElement('div');
+    grid.className = 'chips-grid chips-grid-2';
+    SERVICES.forEach(s => grid.appendChild(chip(s, data.systems.includes(s), () => {
+      if (data.systems.includes(s)) data.systems = data.systems.filter(x => x !== s);
+      else data.systems.push(s);
+    })));
+    block.appendChild(grid);
+  }
+
+  else if (currentStep === 4) {
+    block.innerHTML = '<h2>Timeline &amp; phase</h2><p class="step-caption">Tells us how to prioritize.</p>';
+    const phaseLabel = document.createElement('div');
+    phaseLabel.className = 'field-label';
+    phaseLabel.textContent = 'Project Phase';
+    phaseLabel.style.marginBottom = '0.75rem';
+    block.appendChild(phaseLabel);
+    const grid = document.createElement('div');
+    grid.className = 'chips-grid';
+    PHASES.forEach(p => grid.appendChild(chip(p, data.phase === p, () => data.phase = p)));
+    block.appendChild(grid);
+    const dateWrap = document.createElement('div');
+    dateWrap.style.marginTop = '1.5rem';
+    dateWrap.appendChild(field('Bid / Response Due Date', 'dueDate', 'date'));
+    block.appendChild(dateWrap);
+  }
+
+  else if (currentStep === 5) {
+    block.innerHTML = '<h2>Your contact + scope upload</h2><p class="step-caption">Attach the document if you have one — or send and follow up.</p>';
+    const grid = document.createElement('div');
+    grid.className = 'fields-grid';
+    grid.appendChild(field('Your Name',  'name'));
+    grid.appendChild(field('Title / Role', 'title'));
+    grid.appendChild(field('Email',      'email', 'email'));
+    grid.appendChild(field('Phone',      'phone', 'tel'));
+    block.appendChild(grid);
+
+    // Notes
+    const notesWrap = document.createElement('div');
+    notesWrap.style.marginTop = '1.5rem';
+    const notesLabel = document.createElement('div');
+    notesLabel.className = 'field-label';
+    notesLabel.textContent = 'Notes / Special Conditions';
+    const textarea = document.createElement('textarea');
+    textarea.className = 'field-textarea';
+    textarea.rows = 3;
+    textarea.value = data.notes;
+    textarea.addEventListener('input', () => data.notes = textarea.value);
+    notesWrap.appendChild(notesLabel);
+    notesWrap.appendChild(textarea);
+    block.appendChild(notesWrap);
+
+    // File upload
+    const uploadWrap = document.createElement('div');
+    uploadWrap.style.marginTop = '1.5rem';
+    const uploadLabel = document.createElement('div');
+    uploadLabel.className = 'field-label';
+    uploadLabel.textContent = 'Attach ' + docType + ' Document';
+    const zone = document.createElement('label');
+    zone.className = 'upload-zone';
+    zone.style.marginTop = '0.75rem';
+    zone.innerHTML = `
+      <div>
+        <div class="upload-zone-label">${fileName || 'Drop your ' + docType + ' here or browse'}</div>
+        <span class="upload-zone-sub">PDF · DOCX · DWG · ZIP · up to 100MB</span>
+      </div>
+      <span class="upload-zone-cta">Select File</span>
+      <input type="file" style="display:none" id="file-input">
+    `;
+    zone.querySelector('#file-input').addEventListener('change', e => {
+      fileName = e.target.files[0]?.name || null;
+      renderStep();
+    });
+    uploadWrap.appendChild(uploadLabel);
+    uploadWrap.appendChild(zone);
+    block.appendChild(uploadWrap);
+  }
+
+  content.appendChild(block);
+  updateStepper();
+}
+
+document.getElementById('btn-next').addEventListener('click', () => {
+  if (currentStep < 5) {
+    currentStep++;
+    renderStep();
+  } else {
+    submitWizard();
+  }
+});
+
+document.getElementById('btn-back').addEventListener('click', () => {
+  if (currentStep > 1) { currentStep--; renderStep(); }
+});
+
+function submitWizard() {
+  const subject = encodeURIComponent(docType + ' Submission — ' + (data.project || data.firm || 'Encompass'));
+  const body = encodeURIComponent(
+    'Submission Type: ' + docType +
+    '\nRole: '     + data.role +
+    '\nFirm: '     + data.firm +
+    '\nProject: '  + data.project +
+    '\nLocation: ' + data.location +
+    '\nSize: '     + data.size +
+    '\nSystems: '  + data.systems.join(', ') +
+    '\nPhase: '    + data.phase +
+    '\nBid Due: '  + data.dueDate +
+    '\n\nContact: ' + data.name + ' (' + data.title + ')' +
+    '\n' + data.email + ' • ' + data.phone +
+    '\n\nNotes:\n' + data.notes +
+    '\n\nAttachment: ' + (fileName || '(none — will follow)')
+  );
+  window.location.href = 'mailto:info@encompasstp.com?subject=' + subject + '&body=' + body;
+
+  // Show success
+  document.getElementById('wizard').innerHTML = `
+    <div class="wizard-success">
+      <div class="wizard-success-title">Inquiry on its way.</div>
+      <p>Your default email client opened a pre-addressed message to Encompass. We'll follow up within one business day.</p>
+    </div>
+  `;
+}
+
+// Init
+renderStep();
+
+/* ── Chat ───────────────────────────────────────────── */
+(function() {
+  const launcher = document.getElementById('chat-launcher');
+  const panel    = document.getElementById('chat-panel');
+  const form     = document.getElementById('chat-form');
+  const input    = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+  const iconChat  = launcher.querySelector('.icon-chat');
+  const iconClose = launcher.querySelector('.icon-close');
+
+  launcher.addEventListener('click', () => {
+    const isOpen = panel.classList.toggle('open');
+    iconChat.style.display  = isOpen ? 'none'  : 'block';
+    iconClose.style.display = isOpen ? 'block' : 'none';
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+    const u = document.createElement('div');
+    u.className = 'chat-bubble user';
+    u.textContent = text;
+    messages.appendChild(u);
+    input.value = '';
+    messages.scrollTop = messages.scrollHeight;
+    setTimeout(() => {
+      const b = document.createElement('div');
+      b.className = 'chat-bubble bot';
+      b.textContent = 'Thanks — use the wizard above to submit your documents, or call us at (714) 920-5462.';
+      messages.appendChild(b);
+      messages.scrollTop = messages.scrollHeight;
+    }, 800);
+  });
+})();
+</script>
+</body>
+</html>
