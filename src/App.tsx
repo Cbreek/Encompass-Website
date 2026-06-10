@@ -6,10 +6,13 @@ import { HeroIntro } from './components/HeroIntro'
 import { HeroRotator } from './components/HeroRotator'
 import { Reveal } from './components/Reveal'
 import { FloatingChat } from './components/FloatingChat'
+import { GCFormPage } from './components/GCFormPage'
 
 export default function App() {
+  const [page, setPage] = useState<'home' | 'gc'>('home')
   const [riseKey, setRiseKey] = useState(0)
   const [introPlaying, setIntroPlaying] = useState(true)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const onVis = () => {
@@ -22,6 +25,12 @@ export default function App() {
   const handleIntroDone = () => {
     setIntroPlaying(false)
     setRiseKey((k) => k + 1)
+  }
+
+  const goGC = () => { setPage('gc'); setMobileOpen(false) }
+
+  if (page === 'gc') {
+    return <GCFormPage onBack={() => { setPage('home'); window.scrollTo({ top: 0, behavior: 'smooth' }) }} />
   }
 
   return (
@@ -37,6 +46,7 @@ export default function App() {
           <a href="#" aria-label="Encompass Technology Partners — Home">
             <NavBrand />
           </a>
+          {/* Desktop nav links */}
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.2em] md:flex" style={{ color: 'rgba(255,255,255,0.8)' }}>
             {['#capabilities', '#markets', '#projects', '#about', '#contact'].map((href, i) => (
               <a key={href} href={href} className="transition-colors hover:text-white"
@@ -48,16 +58,75 @@ export default function App() {
               </a>
             ))}
           </div>
-          <a
-            href="#gc"
-            className="hidden items-center px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all sm:inline-flex"
+          {/* Desktop GC button */}
+          <button
+            onClick={goGC}
+            className="hidden items-center px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all md:inline-flex"
             style={{ border: '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.05)' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.25)' }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.05)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.15)' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.25)' }}
+            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.05)'; (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.15)' }}
           >
-            General Contractors &amp; Architects
-          </a>
+            GC &amp; Architects
+          </button>
+          {/* Mobile hamburger */}
+          <button
+            className="flex flex-col justify-center gap-[5px] p-2 md:hidden"
+            aria-label="Open menu"
+            onClick={() => setMobileOpen(o => !o)}
+          >
+            <span
+              className="block h-px w-6 transition-all duration-300"
+              style={{
+                background: '#f5f5f5',
+                transform: mobileOpen ? 'translateY(6px) rotate(45deg)' : 'none',
+              }}
+            />
+            <span
+              className="block h-px w-6 transition-all duration-300"
+              style={{
+                background: '#f5f5f5',
+                opacity: mobileOpen ? 0 : 1,
+              }}
+            />
+            <span
+              className="block h-px w-6 transition-all duration-300"
+              style={{
+                background: '#f5f5f5',
+                transform: mobileOpen ? 'translateY(-6px) rotate(-45deg)' : 'none',
+              }}
+            />
+          </button>
         </div>
+        {/* Mobile dropdown */}
+        {mobileOpen && (
+          <div
+            className="border-t px-6 pb-6 pt-4 md:hidden"
+            style={{ background: 'rgba(18,18,18,0.97)', borderColor: 'rgba(255,255,255,0.08)' }}
+          >
+            <div className="flex flex-col gap-5">
+              {['#capabilities', '#markets', '#projects', '#about', '#contact'].map((href, i) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-[12px] font-medium uppercase tracking-[0.2em] transition-colors"
+                  style={{ color: 'rgba(255,255,255,0.75)' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#e87722')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
+                >
+                  {['Services', 'Markets', 'Projects', 'About', 'Contact'][i]}
+                </a>
+              ))}
+              <button
+                onClick={goGC}
+                className="mt-2 w-full py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all"
+                style={{ background: '#e87722', border: '1px solid #e87722' }}
+              >
+                GC &amp; Architects — Submit RFI / RFP
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* ── Hero ── */}
@@ -375,15 +444,15 @@ export default function App() {
                   on track from permit to punch list.
                 </p>
               </div>
-              <a
-                href="#contact"
+              <button
+                onClick={() => setPage('gc')}
                 className="shrink-0 px-10 py-5 text-xs font-bold uppercase tracking-[0.25em] transition-all duration-300"
                 style={{ background: '#e87722', color: 'white' }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#a01830')}
+                onMouseEnter={e => (e.currentTarget.style.background = '#c96a1a')}
                 onMouseLeave={e => (e.currentTarget.style.background = '#e87722')}
               >
-                Request a Bid Package →
-              </a>
+                Submit an RFI / RFP →
+              </button>
             </div>
           </Reveal>
         </div>
