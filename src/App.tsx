@@ -7,9 +7,10 @@ import { HeroRotator } from './components/HeroRotator'
 import { Reveal } from './components/Reveal'
 import { FloatingChat } from './components/FloatingChat'
 import { GCFormPage } from './components/GCFormPage'
+import { CardScannerPage } from './components/CardScannerPage'
 
 export default function App() {
-  const [page, setPage] = useState<'home' | 'gc'>('home')
+  const [page, setPage] = useState<'home' | 'gc' | 'card'>('home')
   const [riseKey, setRiseKey] = useState(0)
   const [introPlaying, setIntroPlaying] = useState(true)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -32,6 +33,10 @@ export default function App() {
 
   if (page === 'gc') {
     return <GCFormPage onBack={() => { setPage('home'); window.scrollTo({ top: 0, behavior: 'smooth' }) }} />
+  }
+
+  if (page === 'card') {
+    return <CardScannerPage onBack={() => { setPage('home'); window.scrollTo({ top: 0, behavior: 'smooth' }) }} />
   }
 
   return (
@@ -658,8 +663,21 @@ export default function App() {
             </div>
           </div>
 
+          {/* Partner tool link */}
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setPage('card')}
+              className="text-[10px] font-medium uppercase tracking-[0.2em] transition-colors"
+              style={{ color: 'rgba(255,255,255,0.2)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#e87722')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.2)')}
+            >
+              ● Partner Tools — Business Card Follow-Up
+            </button>
+          </div>
+
           <div
-            className="mt-20 flex flex-col items-center justify-between gap-6 text-[10px] font-medium uppercase tracking-widest md:flex-row"
+            className="mt-8 flex flex-col items-center justify-between gap-6 text-[10px] font-medium uppercase tracking-widest md:flex-row"
             style={{ opacity: 0.2 }}
           >
             <p>© {new Date().getFullYear()} Encompass Technology Partners. All systems active.</p>
