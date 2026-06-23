@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Greytone Digital — Brand Proposal for Encompass Technology Partners</title>
+  <title>Greytone Digital — Brand + Website Modernization Initiative</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -26,7 +26,6 @@
       print-color-adjust: exact;
     }
 
-    /* ── PAGE SHELL ── */
     .page {
       width: var(--page-width);
       min-height: 1060px;
@@ -35,6 +34,8 @@
       padding: 72px 80px;
       position: relative;
       page-break-after: always;
+      display: flex;
+      flex-direction: column;
     }
     .page:last-child { page-break-after: auto; }
 
@@ -43,23 +44,8 @@
       .page { margin: 0; width: 100%; box-shadow: none; padding: 64px 72px; }
     }
 
-    /* ── SHARED ELEMENTS ── */
-    .rule { height: 1px; background: var(--rule); margin: 2rem 0; }
-    .rule-dark { height: 1px; background: #222; margin: 2rem 0; }
-
-    .overline {
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--light);
-    }
-
-    /* ── COVER PAGE ── */
-    .cover { display: flex; flex-direction: column; justify-content: space-between; min-height: 916px; }
-
-    .cover-header { display: flex; justify-content: space-between; align-items: flex-start; }
+    /* ── SHARED ── */
+    .rule  { height: 1px; background: var(--rule); margin: 2rem 0; }
 
     .wordmark {
       font-family: 'Playfair Display', serif;
@@ -71,68 +57,18 @@
     }
     .wordmark span { color: var(--light); }
 
-    .cover-meta {
-      text-align: right;
-      font-size: 11px;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
-    .cover-hero { margin-top: auto; padding-top: 120px; }
-
-    .cover-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 2rem;
-    }
-
-    .cover-headline {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-style: italic;
-      font-size: 52px;
-      line-height: 1.08;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      max-width: 560px;
-    }
-
-    .cover-sub {
-      margin-top: 2rem;
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.7;
-      max-width: 420px;
-    }
-
-    .cover-footer {
+    .page-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      padding-top: 80px;
-      border-top: 1px solid var(--rule);
-      margin-top: auto;
+      align-items: center;
+      margin-bottom: 52px;
     }
-
-    .cover-footer-left { font-size: 11px; color: var(--mid); line-height: 1.8; }
-    .cover-footer-left strong { color: var(--ink); font-weight: 500; }
-
-    .cover-tag {
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .page-num {
+      font-size: 10px;
       color: var(--light);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
-
-    /* ── SECTION PAGES ── */
-    .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 56px; }
-    .page-num { font-size: 10px; color: var(--light); letter-spacing: 0.15em; }
 
     h2 {
       font-family: 'Playfair Display', serif;
@@ -149,152 +85,174 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--mid);
+      color: var(--light);
       margin-bottom: 1rem;
     }
 
-    p {
+    p { font-size: 14px; line-height: 1.75; color: var(--mid); }
+
+
+    /* ══════════════════════════════
+       PAGE 1 — COVER
+    ══════════════════════════════ */
+    .cover-header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .cover-meta { text-align: right; font-size: 11px; color: var(--mid); line-height: 1.8; }
+
+    .cover-hero { padding-top: 110px; flex: 1; }
+    .cover-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 1.5rem;
+    }
+    .cover-client {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 0.6rem;
+    }
+    .cover-headline {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 50px;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .cover-sub {
       font-size: 14px;
-      line-height: 1.75;
+      font-weight: 300;
       color: var(--mid);
+      line-height: 1.75;
+      max-width: 400px;
     }
 
-    /* ── PAGE 2 — THE GAP ── */
+    .cover-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+      margin-top: auto;
+    }
+    .cover-footer-left { font-size: 11px; color: var(--mid); line-height: 1.85; }
+    .cover-footer-left strong { color: var(--ink); font-weight: 500; }
+    .cover-tag {
+      font-family: 'Playfair Display', serif;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ddd;
+    }
+
+
+    /* ══════════════════════════════
+       PAGE 2 — OPPORTUNITY
+    ══════════════════════════════ */
     .client-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 1px;
       background: var(--rule);
       border: 1px solid var(--rule);
-      margin: 2rem 0 2.5rem;
+      margin: 1.75rem 0 2rem;
     }
-
-    .client-cell {
-      background: white;
-      padding: 18px 20px;
-    }
-
-    .client-name {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1.4;
-    }
-
-    .client-detail {
-      font-size: 10px;
-      color: var(--light);
-      margin-top: 3px;
-      line-height: 1.4;
-    }
+    .client-cell { background: white; padding: 16px 20px; }
+    .client-name { font-size: 12px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+    .client-detail { font-size: 10px; color: var(--light); margin-top: 3px; line-height: 1.4; }
 
     .gap-statement {
       background: #111;
-      color: white;
-      padding: 32px 36px;
-      margin: 2.5rem 0;
+      padding: 28px 32px;
+      margin: 2rem 0;
     }
-
     .gap-statement p {
       font-family: 'Playfair Display', serif;
-      font-size: 18px;
+      font-size: 17px;
       font-style: italic;
-      color: #ccc;
-      line-height: 1.5;
+      color: #bbbbbb;
+      line-height: 1.55;
       font-weight: 400;
     }
+    .gap-statement strong { color: white; font-style: normal; font-weight: 700; }
 
-    .gap-statement strong {
-      color: white;
-      font-style: normal;
-      font-weight: 700;
-    }
 
-    /* ── PAGE 3 — SCOPE ── */
+    /* ══════════════════════════════
+       PAGE 3 — SCOPE
+    ══════════════════════════════ */
     .scope-block {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 0;
       border-top: 1px solid var(--rule);
+      margin-top: 0.5rem;
     }
-
     .scope-row {
-      display: contents;
-    }
-
-    .scope-label {
-      padding: 24px 24px 24px 0;
+      display: grid;
+      grid-template-columns: 190px 1fr;
       border-bottom: 1px solid var(--rule);
     }
-
+    .scope-label {
+      padding: 22px 20px 22px 0;
+      border-right: 1px solid var(--rule);
+    }
     .scope-label-title {
-      font-family: 'Inter', sans-serif;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--ink);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
+    .scope-label-note { font-size: 10px; color: var(--light); line-height: 1.5; }
 
-    .scope-label-note {
-      font-size: 10px;
-      color: var(--light);
-      line-height: 1.5;
-    }
-
-    .scope-items {
-      padding: 24px 0 24px 28px;
-      border-bottom: 1px solid var(--rule);
-      border-left: 1px solid var(--rule);
-    }
-
+    .scope-items { padding: 22px 0 22px 24px; }
     .scope-item {
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-size: 13px;
       color: var(--mid);
       line-height: 1.5;
     }
-
     .scope-item:last-child { margin-bottom: 0; }
+    .scope-item::before { content: '—'; color: #ccc; flex-shrink: 0; font-size: 11px; margin-top: 1px; }
 
-    .scope-item::before {
-      content: '—';
-      color: var(--rule);
-      flex-shrink: 0;
-      margin-top: 1px;
+    .prototype-note {
+      margin-top: 1.75rem;
+      padding: 16px 20px;
+      border-left: 2px solid var(--rule);
       font-size: 11px;
+      color: var(--light);
+      line-height: 1.65;
+      font-style: italic;
     }
 
-    .scope-note {
-      margin-top: 2rem;
-      padding: 20px 24px;
-      border: 1px solid var(--rule);
-      font-size: 12px;
-      color: var(--mid);
-      line-height: 1.6;
-    }
 
-    /* ── PAGE 4 — INVESTMENT ── */
+    /* ══════════════════════════════
+       PAGE 4 — INVESTMENT
+    ══════════════════════════════ */
     .investment-hero {
-      margin: 2.5rem 0;
-      padding: 48px;
       background: #111;
+      padding: 44px 48px;
       text-align: center;
+      margin: 1.75rem 0;
     }
-
     .investment-label {
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #666;
-      margin-bottom: 1rem;
+      color: #555;
+      margin-bottom: 0.75rem;
     }
-
     .investment-amount {
       font-family: 'Playfair Display', serif;
       font-size: 64px;
@@ -303,13 +261,7 @@
       letter-spacing: -0.02em;
       line-height: 1;
     }
-
-    .investment-sub {
-      font-size: 12px;
-      color: #666;
-      margin-top: 0.75rem;
-      letter-spacing: 0.05em;
-    }
+    .investment-sub { font-size: 11px; color: #555; margin-top: 0.75rem; letter-spacing: 0.06em; }
 
     .terms-grid {
       display: grid;
@@ -317,15 +269,77 @@
       gap: 1px;
       background: var(--rule);
       border: 1px solid var(--rule);
-      margin: 2rem 0;
+      margin-bottom: 2rem;
     }
+    .terms-cell { background: white; padding: 22px 26px; }
+    .terms-cell-label { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--light); margin-bottom: 6px; }
+    .terms-cell-value { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); }
+    .terms-cell-note { font-size: 11px; color: var(--light); margin-top: 3px; }
 
-    .terms-cell {
-      background: white;
-      padding: 24px 28px;
+    .timeline-note {
+      padding: 18px 22px;
+      border: 1px solid var(--rule);
+      margin-bottom: 2rem;
     }
+    .timeline-note-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .timeline-note ul { list-style: none; }
+    .timeline-note li {
+      font-size: 12px;
+      color: var(--mid);
+      line-height: 1.6;
+      padding: 3px 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .timeline-note li::before { content: '·'; color: #ccc; font-size: 16px; margin-top: -2px; }
 
-    .terms-cell-label {
+    .care-plan {
+      padding: 22px 26px;
+      border: 1px solid var(--rule);
+      margin-bottom: 2rem;
+    }
+    .care-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .care-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .care-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .care-price span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: var(--light); }
+    .care-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 24px;
+    }
+    .care-item { font-size: 11px; color: var(--mid); line-height: 1.5; display: flex; gap: 8px; }
+    .care-item::before { content: '—'; color: #ddd; font-size: 10px; flex-shrink: 0; }
+    .care-note { font-size: 10px; color: var(--light); margin-top: 10px; font-style: italic; }
+
+    .future-block {
+      padding: 18px 22px;
+      background: #f9f9f9;
+    }
+    .future-title {
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.18em;
@@ -333,182 +347,153 @@
       color: var(--light);
       margin-bottom: 8px;
     }
+    .future-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .future-tag {
+      font-size: 10px;
+      color: var(--light);
+      border: 1px solid var(--rule);
+      padding: 4px 10px;
+      background: white;
+      letter-spacing: 0.05em;
+    }
 
-    .terms-cell-value {
+
+    /* ══════════════════════════════
+       PAGE 5 — NEXT STEPS
+    ══════════════════════════════ */
+    .next-step-block {
+      border: 1px solid var(--ink);
+      padding: 44px;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .next-step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 900;
+      color: #ebebeb;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .next-step-action {
       font-family: 'Playfair Display', serif;
       font-size: 22px;
       font-weight: 700;
       color: var(--ink);
+      margin-bottom: 0.75rem;
     }
-
-    .terms-cell-note {
-      font-size: 11px;
-      color: var(--light);
-      margin-top: 4px;
-    }
-
-    .timeline-list { list-style: none; margin: 1.5rem 0; }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 16px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--rule);
-      align-items: center;
-    }
-    .timeline-week {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--light);
-    }
-    .timeline-desc {
-      font-size: 13px;
-      color: var(--mid);
-    }
-
-    /* ── PAGE 5 — NEXT STEP ── */
-    .next-step-block {
-      margin: 3rem 0;
-      padding: 48px;
-      border: 1px solid var(--ink);
-      text-align: center;
-    }
-
-    .next-step-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 80px;
-      font-weight: 900;
-      color: var(--rule);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .next-step-action {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
-
     .next-step-sub {
       font-size: 13px;
       color: var(--mid);
-      max-width: 360px;
+      max-width: 340px;
       margin: 0 auto;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    .about-block {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--rule);
+    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
-    }
-
-    .about-block h3 { margin-bottom: 0.75rem; }
-    .about-block p { font-size: 13px; }
-
-    .contact-block {
-      margin-top: 3rem;
-      padding: 28px 32px;
-      background: #f7f7f7;
-    }
-
-    .contact-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-
-    .contact-detail {
-      font-size: 12px;
-      color: var(--mid);
-      line-height: 1.8;
-    }
-
-    .footer-rule {
-      margin-top: auto;
+      margin-top: 2.5rem;
       padding-top: 2rem;
       border-top: 1px solid var(--rule);
+    }
+    .about-grid h3 { margin-bottom: 0.6rem; }
+    .about-grid p { font-size: 12px; line-height: 1.75; }
+
+    .contact-block {
+      margin-top: 2.5rem;
+      padding: 24px 28px;
+      background: #f7f7f7;
+    }
+    .contact-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+    .contact-detail { font-size: 12px; color: var(--mid); line-height: 1.85; }
+
+    .page-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      margin-top: auto;
       font-size: 10px;
       color: var(--light);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
     }
-
     .footer-wordmark {
       font-family: 'Playfair Display', serif;
       font-weight: 900;
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #ccc;
+      color: #ddd;
     }
   </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════════ -->
-<!--  PAGE 1 — COVER                                  -->
-<!-- ════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE 1 — COVER                                     -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="page">
-  <div class="cover">
 
-    <div class="cover-header">
-      <div class="wordmark">GREYTONE <span>DIGITAL</span></div>
-      <div class="cover-meta">
-        Prepared for<br />
-        <strong style="color:#111; font-weight:500;">Encompass Technology Partners LLC</strong><br />
-        Orange, CA 92865<br />
-        June 2026
-      </div>
+  <div class="cover-header">
+    <div class="wordmark">GREYTONE <span>DIGITAL</span></div>
+    <div class="cover-meta">
+      Prepared for<br />
+      <strong style="color:#111; font-weight:500;">Encompass Technology Partners LLC</strong><br />
+      Orange, CA 92865<br />
+      June 2026
     </div>
-
-    <div class="cover-hero">
-      <div class="cover-label">Brand + Marketing Proposal</div>
-      <div class="cover-headline">Your clients are<br />world-class.<br />Your brand<br />should say so.</div>
-      <p class="cover-sub">
-        A complete brand identity and marketing system built to match the caliber
-        of the clients you already serve — and help you win more of them.
-      </p>
-    </div>
-
-    <div class="cover-footer">
-      <div class="cover-footer-left">
-        <strong>Greytone Digital</strong><br />
-        Chrissy Breek, Principal<br />
-        greytonedigital.com
-      </div>
-      <div class="cover-tag">Confidential</div>
-    </div>
-
   </div>
+
+  <div class="cover-hero">
+    <div class="cover-client">Encompass Technology Partners</div>
+    <div class="cover-headline">Brand + Website<br />Modernization<br />Initiative.</div>
+    <p class="cover-sub">
+      A focused engagement to align your digital presence with
+      the caliber of the clients you already serve — and the
+      growth you're building toward.
+    </p>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-left">
+      <strong>Greytone Digital</strong><br />
+      Chrissy Breek, Principal<br />
+      greytonedigital.com
+    </div>
+    <div class="cover-tag">Confidential</div>
+  </div>
+
 </div>
 
 
-<!-- ════════════════════════════════════════════════ -->
-<!--  PAGE 2 — THE OPPORTUNITY                        -->
-<!-- ════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE 2 — THE OPPORTUNITY                           -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="page">
+
   <div class="page-header">
     <div class="wordmark">GREYTONE <span>DIGITAL</span></div>
-    <div class="page-num">01 / THE OPPORTUNITY</div>
+    <div class="page-num">01 · The Opportunity</div>
   </div>
 
-  <h2>The gap<br />between your work<br />and your brand.</h2>
+  <h2>The work speaks<br />for itself.<br />Now the brand should too.</h2>
+  <div class="rule"></div>
 
-  <div class="rule" style="margin: 2rem 0;"></div>
-
-  <h3>Who You're Already Trusted By</h3>
+  <h3>A Client Roster Built on Trust and Performance</h3>
 
   <div class="client-grid">
     <div class="client-cell">
@@ -533,7 +518,7 @@
     </div>
     <div class="client-cell">
       <div class="client-name">Lewis Brisbois</div>
-      <div class="client-detail">Floors 36–47 · LA, San Diego, Beverly Hills</div>
+      <div class="client-detail">Floors 36–47 · LA · San Diego · Beverly Hills</div>
     </div>
     <div class="client-cell">
       <div class="client-name">San Diego Gulls</div>
@@ -551,202 +536,195 @@
 
   <div class="gap-statement">
     <p>
-      You've built one of the most impressive client rosters in SoCal low voltage — in just six years.
-      <strong> The problem is that your brand doesn't reflect it.</strong>
-      Every proposal, every email, every first search result is an introduction.
-      Right now, that introduction undersells you.
+      ETP has built one of the most impressive client rosters in Southern California —
+      in just six years. <strong>Your digital presence has not yet caught up with the
+      caliber of work you've built.</strong> This is the moment to close that gap.
     </p>
   </div>
 
   <p style="font-size:13px; line-height:1.8;">
-    You're targeting $25M in three years. The companies that hire at that level make decisions
-    before the first call. They look you up. They forward your proposal to a committee.
-    They compare you to competitors who look the part.
-    <br /><br />
-    The work to get there is already done. The brand just needs to catch up.
+    The firms that reach $25M don't get there on referrals alone. They get there
+    because their brand opens doors before anyone picks up the phone. The work
+    to get there is already done.
   </p>
 
 </div>
 
 
-<!-- ════════════════════════════════════════════════ -->
-<!--  PAGE 3 — SCOPE OF WORK                          -->
-<!-- ════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE 3 — SCOPE                                     -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="page">
+
   <div class="page-header">
     <div class="wordmark">GREYTONE <span>DIGITAL</span></div>
-    <div class="page-num">02 / SCOPE OF WORK</div>
+    <div class="page-num">02 · Scope of Work</div>
   </div>
 
-  <h2>What we're<br />building together.</h2>
-  <div class="rule" style="margin: 2rem 0;"></div>
+  <h2>What we're<br />building.</h2>
+  <div class="rule"></div>
 
   <div class="scope-block">
 
     <div class="scope-row">
       <div class="scope-label">
-        <div class="scope-label-title">Brand Identity System</div>
-        <div class="scope-label-note">The foundation everything else is built on.</div>
+        <div class="scope-label-title">Website Modernization</div>
+        <div class="scope-label-note">Built on existing brand equity. Elevated.</div>
       </div>
       <div class="scope-items">
-        <div class="scope-item">New Logo System — primary mark, horizontal lockup, icon mark</div>
-        <div class="scope-item">Color Palette — primary and secondary with usage specifications</div>
-        <div class="scope-item">Typography System — display, headline, and body type selection</div>
-        <div class="scope-item">Brand Standards Guide — rules, usage, do's and don'ts (PDF)</div>
+        <div class="scope-item">Homepage — repositioned, modern, performance-focused</div>
+        <div class="scope-item">About — partners, story, and 80+ years of expertise</div>
+        <div class="scope-item">Services — AV, Cabling, Security, Network, Sound Masking</div>
+        <div class="scope-item">Industries — Corporate, Hospitality, Life Science, Entertainment & more</div>
+        <div class="scope-item">Project Experience — flagship clients, featured work</div>
+        <div class="scope-item">Contact — clean, conversion-focused</div>
+        <div class="scope-item">Full mobile optimization</div>
       </div>
     </div>
 
     <div class="scope-row">
       <div class="scope-label">
-        <div class="scope-label-title">Statement of Qualifications</div>
-        <div class="scope-label-note">Your primary sales document. Fully redesigned.</div>
+        <div class="scope-label-title">Brand Foundation</div>
+        <div class="scope-label-note">Visual refinement and consistency — no logo rebuild required.</div>
       </div>
       <div class="scope-items">
-        <div class="scope-item">12–14 page designed document — print and digital ready</div>
-        <div class="scope-item">Company overview, partner bios, core expertise sections</div>
-        <div class="scope-item">Project showcase layout — featuring your flagship clients</div>
-        <div class="scope-item">Editable template for future updates (InDesign or Canva)</div>
-      </div>
-    </div>
-
-    <div class="scope-row">
-      <div class="scope-label">
-        <div class="scope-label-title">Proposal Template</div>
-        <div class="scope-label-note">Replaces the current Word format.</div>
-      </div>
-      <div class="scope-items">
-        <div class="scope-item">Branded cover page + interior page system</div>
-        <div class="scope-item">Materials list, terms, and signature page templates</div>
-        <div class="scope-item">Editable Word or Google Docs format for team use</div>
-      </div>
-    </div>
-
-    <div class="scope-row">
-      <div class="scope-label">
-        <div class="scope-label-title">Collateral Suite</div>
-        <div class="scope-label-note">Every touchpoint, consistent.</div>
-      </div>
-      <div class="scope-items">
-        <div class="scope-item">Business cards — 3 partners + team template</div>
-        <div class="scope-item">Letterhead + envelope template</div>
-        <div class="scope-item">Email signature templates (3 partners)</div>
-        <div class="scope-item">PowerPoint presentation template</div>
+        <div class="scope-item">Statement of Qualifications — complete redesign, print + digital ready</div>
+        <div class="scope-item">Capabilities Statement — single-page, client-facing overview</div>
+        <div class="scope-item">Proposal Template — branded cover and interior pages</div>
+        <div class="scope-item">Case Study Template — for project showcases</div>
+        <div class="scope-item">Email Signature Standards — all partners and team</div>
+        <div class="scope-item">LinkedIn Company Page Refresh — banner, about, visual alignment</div>
       </div>
     </div>
 
   </div>
 
-  <div class="scope-note">
-    <strong style="color: #111; font-size:11px;">Website Redesign</strong> — Discussed as a natural Phase 2.
-    Sean's instinct is right: the SOQ and website should be built from the same visual system.
-    Once the brand identity is locked, a separate website proposal will follow.
+  <div class="prototype-note">
+    Previous prototype concepts shared during early conversations were exploratory in nature and intended
+    to demonstrate possibilities. Final design, content, and functionality will be aligned with
+    Encompass Technology Partners' business objectives and approved scope.
+  </div>
+
+  <div class="page-footer" style="margin-top: auto; padding-top: 1.5rem;">
+    <span>Greytone Digital · Confidential</span>
+    <div class="footer-wordmark">GREYTONE DIGITAL</div>
+    <span>June 2026</span>
   </div>
 
 </div>
 
 
-<!-- ════════════════════════════════════════════════ -->
-<!--  PAGE 4 — INVESTMENT + TIMELINE                  -->
-<!-- ════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE 4 — INVESTMENT                                -->
+<!-- ══════════════════════════════════════════════════ -->
 <div class="page">
+
   <div class="page-header">
     <div class="wordmark">GREYTONE <span>DIGITAL</span></div>
-    <div class="page-num">03 / INVESTMENT + TIMELINE</div>
+    <div class="page-num">03 · Investment</div>
   </div>
 
-  <h2>A brand that pays<br />for itself the first<br />time it closes a deal.</h2>
+  <h2>Straightforward.<br />No surprises.</h2>
 
   <div class="investment-hero">
-    <div class="investment-label">Total Investment</div>
-    <div class="investment-amount">$15,500</div>
-    <div class="investment-sub">All deliverables included · No add-ons · No hourly billing</div>
+    <div class="investment-label">Total Project Investment</div>
+    <div class="investment-amount">$4,500</div>
+    <div class="investment-sub">All deliverables included · No hourly billing · No add-ons</div>
   </div>
 
   <div class="terms-grid">
     <div class="terms-cell">
-      <div class="terms-cell-label">Due at Signing</div>
-      <div class="terms-cell-value">$7,750</div>
-      <div class="terms-cell-note">50% deposit to begin</div>
+      <div class="terms-cell-label">To Begin</div>
+      <div class="terms-cell-value">$2,250</div>
+      <div class="terms-cell-note">50% deposit upon agreement</div>
     </div>
     <div class="terms-cell">
-      <div class="terms-cell-label">Due on Delivery</div>
-      <div class="terms-cell-value">$7,750</div>
-      <div class="terms-cell-note">Balance on final handoff</div>
-    </div>
-    <div class="terms-cell">
-      <div class="terms-cell-label">Timeline</div>
-      <div class="terms-cell-value">6 Weeks</div>
-      <div class="terms-cell-note">From signed agreement + deposit</div>
-    </div>
-    <div class="terms-cell">
-      <div class="terms-cell-label">Revisions Included</div>
-      <div class="terms-cell-value">2 Rounds</div>
-      <div class="terms-cell-note">Per deliverable set</div>
+      <div class="terms-cell-label">Upon Completion</div>
+      <div class="terms-cell-value">$2,250</div>
+      <div class="terms-cell-note">Balance prior to final handoff</div>
     </div>
   </div>
 
-  <h3>Delivery Schedule</h3>
-  <ul class="timeline-list">
-    <li class="timeline-item">
-      <span class="timeline-week">Week 1–2</span>
-      <span class="timeline-desc">Brand discovery session · Logo concepts presented (3 directions)</span>
-    </li>
-    <li class="timeline-item">
-      <span class="timeline-week">Week 3</span>
-      <span class="timeline-desc">Logo refinement + approval · Color and typography finalized</span>
-    </li>
-    <li class="timeline-item">
-      <span class="timeline-week">Week 4–5</span>
-      <span class="timeline-desc">Statement of Qualifications design · Proposal template built</span>
-    </li>
-    <li class="timeline-item">
-      <span class="timeline-week">Week 6</span>
-      <span class="timeline-desc">Collateral suite delivery · Brand standards guide · Final handoff</span>
-    </li>
-  </ul>
+  <div class="timeline-note">
+    <div class="timeline-note-label">Timeline</div>
+    <ul>
+      <li>Estimated completion approximately two weeks following signed agreement or email approval</li>
+      <li>Receipt of initial deposit</li>
+      <li>Delivery of required content and materials from ETP</li>
+      <li>Timely client feedback and approvals throughout</li>
+    </ul>
+  </div>
+
+  <div class="care-plan">
+    <div class="care-header">
+      <div class="care-title">Optional · Monthly Website Care Plan</div>
+      <div class="care-price">$150 <span>/ month</span></div>
+    </div>
+    <div class="care-items">
+      <div class="care-item">Hosting oversight</div>
+      <div class="care-item">Security monitoring</div>
+      <div class="care-item">Software & plugin updates</div>
+      <div class="care-item">Technical support</div>
+      <div class="care-item">One monthly check-in</div>
+      <div class="care-item">Up to 30 min content updates</div>
+    </div>
+    <div class="care-note">Additional work outside the care plan may be quoted separately. No minimum term required.</div>
+  </div>
+
+  <div class="future-block">
+    <div class="future-title">Future Opportunities · Not Included in Current Scope</div>
+    <div class="future-items">
+      <div class="future-tag">AI Assistant</div>
+      <div class="future-tag">Lead Qualification</div>
+      <div class="future-tag">Automation</div>
+      <div class="future-tag">CRM Integration</div>
+      <div class="future-tag">Marketing Campaigns</div>
+    </div>
+  </div>
 
 </div>
 
 
-<!-- ════════════════════════════════════════════════ -->
-<!--  PAGE 5 — NEXT STEP + ABOUT                      -->
-<!-- ════════════════════════════════════════════════ -->
-<div class="page" style="display:flex; flex-direction:column;">
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE 5 — NEXT STEPS                                -->
+<!-- ══════════════════════════════════════════════════ -->
+<div class="page">
+
   <div class="page-header">
     <div class="wordmark">GREYTONE <span>DIGITAL</span></div>
-    <div class="page-num">04 / NEXT STEP</div>
+    <div class="page-num">04 · Next Step</div>
   </div>
 
-  <h2>One step to<br />get started.</h2>
-  <div class="rule" style="margin: 2rem 0;"></div>
+  <h2>Ready when<br />you are.</h2>
+  <div class="rule"></div>
 
   <div class="next-step-block">
     <div class="next-step-num">01</div>
-    <div class="next-step-action">Sign the agreement + submit deposit</div>
+    <div class="next-step-action">Approve and submit deposit</div>
     <p class="next-step-sub">
-      A Brand Discovery session is scheduled within three business days.
-      From there, the six-week clock starts.
+      Reply with <strong style="color:#111;">APPROVED</strong> or <strong style="color:#111;">AGREE</strong>
+      to confirm scope and terms.<br /><br />
+      Greytone Digital will issue a Stripe invoice for the 50% deposit.
+      Work begins upon receipt.
     </p>
   </div>
 
-  <div class="about-block">
+  <div class="about-grid">
     <div>
       <h3>About Greytone Digital</h3>
       <p>
-        Greytone Digital is a brand and digital marketing agency built for
-        ambitious, growth-stage businesses. We specialize in brand identity,
-        marketing systems, and digital presence — helping companies look and
-        communicate at the level they already operate.
+        Greytone Digital is a boutique brand and digital agency working with
+        growth-stage businesses that are ready to look and communicate at the
+        level they already operate. We bring strategic thinking and
+        craft-level execution — without the overhead of a large agency.
       </p>
     </div>
     <div>
-      <h3>Why This Matters Now</h3>
+      <h3>Why Now</h3>
       <p>
-        The firms reaching $25M don't get there on referrals alone.
-        They get there because their brand opens doors before anyone
-        picks up the phone. ETP has the work history, the team, and
-        the client roster to compete at that level. The brand is the
-        final piece.
+        ETP is at an inflection point. The client roster, the team, the track
+        record — it's all there. A modernized digital presence doesn't change
+        what you do. It makes sure the right people recognize it immediately.
       </p>
     </div>
   </div>
@@ -760,13 +738,14 @@
     </div>
   </div>
 
-  <div class="footer-rule" style="margin-top: 2rem;">
+  <div class="page-footer">
     <span>Proposal valid for 30 days · June 2026</span>
-    <span class="footer-wordmark">GREYTONE DIGITAL</span>
+    <div class="footer-wordmark">GREYTONE DIGITAL</div>
     <span>Confidential</span>
   </div>
 
 </div>
+
 
 </body>
 </html>
