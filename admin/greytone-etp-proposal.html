@@ -42,6 +42,7 @@
     @media print {
       body { background: white; }
       .page { margin: 0; width: 100%; box-shadow: none; padding: 64px 72px; }
+      .page.cover { background: #131313 !important; }
     }
 
     /* ── SHARED ── */
@@ -93,8 +94,45 @@
 
 
     /* ══════════════════════════════
-       PAGE 1 — COVER
+       PAGE 1 — DARK COVER
     ══════════════════════════════ */
+    .page.cover {
+      background: #131313;
+    }
+    .page.cover .wordmark {
+      color: #999999;
+    }
+    .page.cover .wordmark span {
+      color: #444444;
+    }
+    .page.cover .cover-meta {
+      color: #5a5a5a;
+    }
+    .page.cover .cover-meta strong {
+      color: #999999 !important;
+    }
+    .page.cover .cover-client {
+      color: #4a4a4a;
+    }
+    .page.cover .cover-headline {
+      color: #d8d4cf;
+    }
+    .page.cover .cover-sub {
+      color: #5e5e5e;
+    }
+    .page.cover .cover-footer {
+      border-top-color: #242424;
+    }
+    .page.cover .cover-footer-left {
+      color: #5a5a5a;
+    }
+    .page.cover .cover-footer-left strong {
+      color: #888888 !important;
+    }
+    .page.cover .cover-tag {
+      color: #2e2e2e;
+    }
+
     .cover-header { display: flex; justify-content: space-between; align-items: flex-start; }
     .cover-meta { text-align: right; font-size: 11px; color: var(--mid); line-height: 1.8; }
 
@@ -446,7 +484,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!-- PAGE 1 — COVER                                     -->
 <!-- ══════════════════════════════════════════════════ -->
-<div class="page">
+<div class="page cover">
 
   <div class="cover-header">
     <div class="wordmark">GREYTONE <span>DIGITAL</span></div>
@@ -462,9 +500,9 @@
     <div class="cover-client">Encompass Technology Partners</div>
     <div class="cover-headline">Brand + Website<br />Modernization<br />Initiative.</div>
     <p class="cover-sub">
-      A focused engagement to align your digital presence with
-      the caliber of the clients you already serve — and the
-      growth you're building toward.
+      Modernizing your brand and website to reflect the quality
+      of work you already deliver, and support the growth
+      you are building toward.
     </p>
   </div>
 
