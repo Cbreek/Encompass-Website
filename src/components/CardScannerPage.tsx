@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { NavBrand } from './NavBrand'
 
 const PARTNERS = [
-  { name: 'Sean Smith', title: 'Partner', email: 'sean@encompasstp.com', calendar: '' },
-  { name: 'Jason Breek', title: 'Partner', email: 'jason@encompasstp.com', calendar: '' },
-  { name: 'Partner Three', title: 'Partner', email: 'info@encompasstp.com', calendar: '' },
+  { name: 'Sean Smith', title: 'Partner', email: 'sean.smith@encompasstp.com', calendar: '' },
+  { name: 'Jason Voss', title: 'Partner', email: 'jason.voss@encompasstp.com', calendar: '' },
+  { name: 'Sean Sutton', title: 'Partner', email: 'sean.sutton@encompasstp.com', calendar: '' },
 ]
 
 const PREVIEW_URL = 'https://encompass-prototype.netlify.app'
