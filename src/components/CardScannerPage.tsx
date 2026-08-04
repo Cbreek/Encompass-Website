@@ -7,7 +7,7 @@ const PARTNERS = [
   { name: 'Sean Sutton', title: 'Partner', email: 'sean.sutton@encompasstp.com', calendar: '' },
 ]
 
-const PREVIEW_URL = 'https://encompass-prototype.netlify.app'
+const PREVIEW_URL = 'https://precious-sunburst-290c10.netlify.app'
 
 function FieldInput({
   label,
